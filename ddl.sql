@@ -8,6 +8,6 @@ CREATE TABLE users(
   age INT NOT NULL
 );
 
-INSERT INTO users(null, '津嶋勇輝', 21);
-INSERT INTO users(null, '石木政吏', 20);
-INSERT INTO users(null, '藤原頼希', 19);
+INSERT INTO users VALUES(null, '津嶋勇輝', 21);
+INSERT INTO users VALUES(null, '石木政吏', 20);
+INSERT INTO users VALUES(null, '藤原頼希', 19);
