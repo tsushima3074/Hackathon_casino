@@ -14,6 +14,7 @@
     // サーバーの指定
     private $server;
 
+    // コンストラクタの定義
     function __construct($user, $pw, $database, $server) {
       $this->user = $user;
       $this->pw = $pw;
@@ -45,6 +46,7 @@
     }
   }
 
+  // -------------------環境変数の取得-------------------
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
   $dotenv->load();
   $user = $_ENV["USER"];
@@ -52,6 +54,10 @@
   $database = $_ENV["DATABASE"];
   $server = $_ENV["SERVER"];
 
+  // --------------------------------------------------
+
+  // インスタンスの生成
   $connect = new Connect($user, $pw, $database, $server);
+  // コネクションの取得
   $connect->get_select_user();
 
