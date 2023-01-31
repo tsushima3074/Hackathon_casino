@@ -139,6 +139,7 @@
     }
     .f-btn:hover {
       cursor: pointer;
+      background-color: #2EB7E2;
     }
     .move-login {
       font-size: 25px;
