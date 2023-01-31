@@ -54,20 +54,42 @@
       }
     }
 
-    var_dump($error_flag);
+    // var_dump($error_flag);
     
   } else {
     $error_flag[] = "ちゃんとデータ送ってください";
   }
 
-  var_dump($_SESSION);
+  // var_dump($_SESSION);
 
 ?>
 
-<form action="./create_account.php" method="post">
-  mail: <input type="text" name="mail" id=""><br>
-  name: <input type="text" name="name" id=""><br>
-  pw: <input type="text" name="pw" id=""><br>
-  repw: <input type="text" name="re_pw" id=""><br>
-  <button type="submit">送信</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アカウント登録</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div class="flex justify-center">
+    <img src="img/icon.png" alt="icon">
+    <span class="f-40">じょびカジノ</span>
+  </div>
+  <div class="box">
+    <span>アカウント登録</span>
+    <form action="./create_account.php" method="post">
+      <p>メールアドレス</p><input type="text" name="mail" id=""><br>
+      <p>ユーザ名</p><input type="text" name="name" id=""><br>
+      <p>パスワード</p><input type="text" name="pw" id=""><br>
+      <p>確認用パスワード</p><input type="text" name="re_pw" id=""><br>
+      <button type="submit">送信</button>
+    </form>
+  </div>
+</body>
+</html>
+
