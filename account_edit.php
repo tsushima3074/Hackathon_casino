@@ -7,7 +7,7 @@
 
   $error_flag = array();
 
-  var_dump($_SESSION);
+  // var_dump($_SESSION); 
 
   if (!isset($_SESSION["user"]["id"])) {
     header("Location:./login.php");
@@ -47,7 +47,7 @@
     $error_flag = "ちゃんとデータをおくってください";
   }
 
-  var_dump($error_flag);
+  // var_dump($error_flag);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,6 +99,8 @@
     }
     .input-center {
       margin: 0 auto;
+      margin-top: 100px;
+      margin-bottom: 50px;
       margin-left: 135px;
     }
     .f-input {
@@ -125,13 +127,12 @@
   </style>
 </head>
 <body>
-  <div>
+  <div class="box align-center">
+    <p class="subtitle">アカウント編集</p>
     <form action="account_edit.php" method="post">
       <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="" class="f-input"></span></div>
       <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input"></span></div><br>
-      <!-- メールアドレス: <input type="text" name="mail" id=""><br>
-      ユーザ名: <input type="text" name="name" id=""><br> -->
-      <button type="submit">送信</button>
+      <button type="submit" class="f-btn">編集</button>
     </form>
   </div>
 </body>
