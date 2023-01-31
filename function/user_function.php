@@ -32,7 +32,7 @@
     space_replacement($mail);
   //      5文字以上、64文字以内であるか
     if (
-      length_validation($mail, 64, 5)) {
+      length_validation($mail, 256, 5)) {
   //   行頭が英数字の1文字以上でかつ「＠」マークの後、英字「.」英字の形式であるか 例1※a@a.a 例2※01.Sample_Mail-DaNyo@Abc.deF
       if (preg_match("/^([a-zA-Z\d])+([a-zA-Z\d._-])*@([a-zA-Z])+((\.)+([a-zA-Z]+))+$/", $mail)) {
         return true;
@@ -64,11 +64,11 @@
 
   //    名前のバリデーションチェックをする関数
   function name_validation($name): bool {
-//     1文字以上、64文字以内であるか
+//     1文字以上、32文字以内であるか
 //    空白を削除
     $name = space_replacement($name);
     if (
-      length_validation($name, 64, 1)) {
+      length_validation($name, 32, 1)) {
       return true;
     } else {
       return false;

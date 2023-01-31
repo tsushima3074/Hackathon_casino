@@ -14,22 +14,28 @@
     $name = $_POST["name"];
     $pw = $_POST["pw"];
     $re_pw = $_POST["re_pw"];
+    // pwと確認用pwが一致しているか
     if ($pw !== $re_pw) {
       $error_flag[] = "pwが一致していません"; 
     }
+    // メール形式で送られてきているか
     if (!mail_validation($mail)) {
       $error_flag[] = "メール形式が不正です";
     }
+    // 名前のバリデーションチェック
     if (!name_validation($name)) {
       $error_flag[] = "名前が短い、もしくは長すぎます";
     }
+    // pwのバリデーションチェック
     if (!pw_validation($pw)) {
       $error_flag[] = "大文字小文字数字を含め、８文字以上を使ってください";
     }
-    var_dump($error_flag);
+    
   } else {
     $error_flag[] = "ちゃんとデータ送ってください";
   }
+
+
 
 ?>
 
