@@ -2,9 +2,16 @@
     session_start();
     require __DIR__ . "\db\user_db.php";
 
-    $id = $_SESSION["id"];
+    if(isset($_SESSION["id"])) {
+      $id = $_SESSION["user"]["id"];
 
-    $user = new user_db();
+      try {
+        $user = new user_db();
+        $data = $user->delete_name_user($id);
+        var_dump($data);  
+        } catch (Exception $e) {
+        echo $e;
+        }
 
-    $data = $user->delete_name_user($id);
-    var_dump($data);
+    }
+    

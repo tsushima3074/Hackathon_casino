@@ -33,7 +33,7 @@
           $pdo = $connect->get_select_user();
   
           
-          $sql = "DELETE * FROM account WHERE id = :id";
+          $sql = "DELETE  FROM account WHERE id = :id";
   
           $stm = $pdo->prepare($sql);
   
