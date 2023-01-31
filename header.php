@@ -50,7 +50,7 @@
       <span>ユーザ名</span>
     </div>
     <div class="h-edit f-30">
-      <span><a href="edit.php" class="non-a">編集</a></span>
+      <span><a href="account_edit.php" class="non-a">編集</a></span>
     </div>
     <div class="h-logout f-30">
       <span><a href="logout.php" class="non-a">ログアウト</a></span>

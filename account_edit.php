@@ -65,6 +65,9 @@
     .justify-center {
       justify-content: center;
     }
+    .justify-around {
+      justify-content: space-around;
+    }
     .align-center {
       align-items: center;
     }
@@ -77,22 +80,22 @@
       font-weight: 600;
       text-align: center;
       margin-bottom: 20px;
-      margin-top: 20px;
+      margin-top: 40px;
     }
     .box {
       width: 40%;
-      height: 750px;
+      height: 700px;
       background-color: #E3E3E3;
       border-radius: 50px;
       border: 1px solid #000;
       margin: 0 auto;
-      margin-top: 10px;
+      margin-top: 30px;
     }
     .account-form {
       margin: 0 auto;
     }
     .f-p {
-      font-size: 30px;
+      font-size: 35px;
       margin-bottom: 0;
       margin-top: 5px;
     }
@@ -101,8 +104,8 @@
     }
     .input-center {
       margin: 0 auto;
-      margin-top: 100px;
-      margin-bottom: 50px;
+      margin-top: 80px;
+      margin-bottom: 30px;
       margin-left: 135px;
     }
     .f-input {
@@ -111,9 +114,9 @@
     }
     .f-btn {
       width: 65%;
-      height: 50px;
+      height: 60px;
       font-size: 30px;
-      margin: 20px 0px 20px 135px;
+      margin: 10px 0px 20px 135px;
       color: #fff;
       border: none;
       background-color: #31C4FC;
@@ -121,10 +124,14 @@
     }
     .f-btn:hover {
       cursor: pointer;
+      background-color: #2EB7E2;
     }
     .move-login {
       font-size: 25px;
       margin-left: 130px;
+    }
+    .f-a {
+      font-size: 20px;
     }
   </style>
 </head>
@@ -133,10 +140,11 @@
   <div class="box align-center">
     <p class="subtitle">アカウント編集</p>
     <form action="account_edit.php" method="post">
-      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="" class="f-input"></span></div>
-      <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input"></span></div><br>
+      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="" class="f-input" value=""></span></div>
+      <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input" value=""></span></div><br>
       <button type="submit" class="f-btn">編集</button>
     </form>
+    <div class="flex justify-around"><a href="password_edit.php" class="f-a">パスワード編集</a><a href="account_delete.php" class="f-a">アカウント削除</a></div>
   </div>
 </body>
 </html>
