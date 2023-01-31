@@ -72,23 +72,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>アカウント登録</title>
   <style>
+    .flex {
+      display: flex;
+    }
+    .justify-center {
+      justify-content: center;
+    }
+    .align-center {
+      align-items: center;
+    }
+    .title {
+      font-size: 40px;
+      font-weight: 600;
+    }
+    .subtitle {
+      font-size: 40px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .box {
+      width: 40%;
+      height: 700px;
+      background-color: #E3E3E3;
+      border-radius: 50px;
+      border: 1px solid #000;
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+    .f-30 {
+      font-size: 30px;
+    }
+    .account-form > p {
+      margin-bottom: 0;
+      margin-left: 50px;
+    }
+    .account-form > div {
+      display: flex;
 
+    }
+    .account-form > div > input {
+      width: 60%;
+      height: 30px;
+      font-size: 100%;
+    }
+
+    .form-btn {
+
+    }
   </style>
 </head>
 <body>
-  <div class="flex justify-center">
+  <div class="flex justify-center align-center">
     <img src="img/icon.png" alt="icon">
-    <span class="f-40">じょびカジノ</span>
+    <span class="title">じょびカジノ</span>
   </div>
-  <div class="box">
-    <span>アカウント登録</span>
-    <form action="./create_account.php" method="post">
-      <p>メールアドレス</p><input type="text" name="mail" id=""><br>
-      <p>ユーザ名</p><input type="text" name="name" id=""><br>
-      <p>パスワード</p><input type="text" name="pw" id=""><br>
-      <p>確認用パスワード</p><input type="text" name="re_pw" id=""><br>
-      <button type="submit">送信</button>
+  <div class="box align-center">
+    <p class="subtitle">アカウント登録</p>
+    <form action="./create_account.php" method="post" class="account-form">
+      <p class="f-30">メールアドレス</p><div><img src="img/mail.png" width="40"><input type="text" name="mail" id=""></div><br>
+      <p class="f-30">ユーザ名</p><div><img src="img/user.png" width="40"><input type="text" name="name" id=""></div><br>
+      <p class="f-30">パスワード</p><div><img src="img/pass.png" width="40"><input type="text" name="pw" id=""></div><br>
+      <p class="f-30">確認用パスワード</p><div><img src="img/pass.png" width="40"><input type="text" name="re_pw" id=""></div><br>
+      <button type="submit" class="form-btn">送信</button>
+
     </form>
+    <a href="login.php">ログイン画面へ</a>
   </div>
 </body>
 </html>
