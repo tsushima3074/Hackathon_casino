@@ -41,7 +41,7 @@
 <body>
   <header class="flex header align-center">
     <div class="flex align-center">
-      <img class="h-img" src="img/header_icon.png" />
+      <img class="h-img" src="img/icon.png" />
       <div class="h-title">
         <span><a href="index.php" class="non-a">じょびカジノ</a></span>
       </div>
