@@ -131,10 +131,5 @@
     </form>
     <a href="create_account.php" class="move-login">アカウント登録</a>
   </div>
-  <!-- <form action="login.php" method="post">
-    メール：<input type="text" name="mail" id=""><br>
-    パスワード：<input type="text" name="pw" id=""><br>
-    <input type="submit">
-  </form> -->
 </body>
 </html>
