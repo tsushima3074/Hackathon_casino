@@ -57,8 +57,6 @@
       <p class="f-30 ta-center">残りかけポイント：99999</p>
       <a href="">ルーレットをプレイする</a>
     </div>
-    <div>
-    </div>
     <div class="slot">
       <p class="f-30 ta-center">最低Bet額：100</p>
       <div class="flex justify-center align-center">
