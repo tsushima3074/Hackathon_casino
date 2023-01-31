@@ -110,6 +110,7 @@
     }
     .f-btn:hover {
       cursor: pointer;
+      background-color: #2EB7E2;
     }
     .move-login {
       font-size: 25px;
@@ -125,8 +126,8 @@
   <div class="box align-center">
     <p class="subtitle">ログイン</p>
     <form action="login.php" method="post" class="account-form">
-      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="" class="f-input"></span></div><br>
-      <div class="input-center"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="pw" id="" class="f-input"></span></div><br>
+      <div class="input-center"><label for="mail"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="mail" class="f-input"></span></label></div><br>
+      <div class="input-center"><label for="pass"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="pw" id="pass" class="f-input"></span></label></div><br>
       <button type="submit" class="f-btn">ログイン</button>
     </form>
     <a href="create_account.php" class="move-login">アカウント登録</a>
