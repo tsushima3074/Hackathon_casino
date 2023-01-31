@@ -33,20 +33,23 @@
     .mt-20 {
       margin-top: 30px;
     }
+    .li-none {
+      list-style: none;
+    }
+
   </style>
 </head>
 <body>
   <div class="flex justify-around mt-20">
     <div class="roulette">
-      <!-- 数字部分database -->
       <p class="f-30 ta-center">最低Bet額：100</p>
       <div class="flex justify-center align-center">
         <span class="l-triangle" onclick=""></span>
         <img src="img/icon.png" width="300">
-        <!-- <ul class="">
-          <li><img src="img/icon.png" width="300"></li>
-          <li><img src="img/icon.png" width="300"></li>
-          <li><img src="img/icon.png" width="300"></li>
+        <!-- <ul class="slide">
+          <li class="li-none"><img src="img/icon.png" width="300"></li>
+          <li class="li-none"><img src="img/icon.png" width="300"></li>
+          <li class="li-none"><img src="img/icon.png" width="300"></li>
         </ul> -->
         <span class="r-triangle"></span>
       </div>
@@ -68,8 +71,5 @@
       <a href="">スロットをプレイする</a>
     </div>
   </div>
-  <script>
-
-  </script>
 </body>
 </html>
