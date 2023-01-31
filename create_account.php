@@ -92,31 +92,32 @@
     }
     .box {
       width: 40%;
-      height: 700px;
+      height: 750px;
       background-color: #E3E3E3;
       border-radius: 50px;
       border: 1px solid #000;
       margin: 0 auto;
       margin-top: 10px;
     }
-    .f-30 {
+    .account-form {
+      margin: 0 auto;
+    }
+    .f-p {
       font-size: 30px;
-    }
-    .account-form > p {
       margin-bottom: 0;
-      margin-left: 50px;
     }
-    .account-form > div {
+    .form-div {
       display: flex;
-
     }
-    .account-form > div > input {
-      width: 60%;
-      height: 30px;
-      font-size: 100%;
+    .input-center {
+      margin: 0 auto;
+      margin-left:  100px;
     }
-
-    .form-btn {
+    .f-input {
+      width: 70%;
+    }
+    .f-btn {
+      margin: 0 auto;
 
     }
   </style>
@@ -129,12 +130,11 @@
   <div class="box align-center">
     <p class="subtitle">アカウント登録</p>
     <form action="./create_account.php" method="post" class="account-form">
-      <p class="f-30">メールアドレス</p><div><img src="img/mail.png" width="40"><input type="text" name="mail" id=""></div><br>
-      <p class="f-30">ユーザ名</p><div><img src="img/user.png" width="40"><input type="text" name="name" id=""></div><br>
-      <p class="f-30">パスワード</p><div><img src="img/pass.png" width="40"><input type="text" name="pw" id=""></div><br>
-      <p class="f-30">確認用パスワード</p><div><img src="img/pass.png" width="40"><input type="text" name="re_pw" id=""></div><br>
-      <button type="submit" class="form-btn">送信</button>
-
+      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="" class="f-input"></span></div><br>
+      <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input"></span></div><br>
+      <div class="input-center"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="pw" id="" class="f-input"></span></div><br>
+      <div class="input-center"><p class="f-p">確認用パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="re_pw" id="" class="f-input"></span></div><br>
+      <button type="submit" class="f-btn">送信</button>
     </form>
     <a href="login.php">ログイン画面へ</a>
   </div>
