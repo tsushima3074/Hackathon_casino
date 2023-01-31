@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require __DIR__ . "\db\user_db.php";
 
     $id = $_SESSION["id"];
