@@ -30,12 +30,25 @@
     if (!pw_validation($pw)) {
       $error_flag[] = "大文字小文字数字を含め、８文字以上を使ってください";
     }
+
+    // salt用のランダムな文字列の取得
+    $salt = randomStr(16);
+
+    // pwのhash化
+    $hash_pw = hash256($pw, $salt);
+
+    try {
+      $user_db = new user_db();
+      $user_db->create_account($name, $mail, $hash_pw, $salt);
+    } catch (Exception $e) {
+      $error_flag[] = $e;
+    }
+
+    var_dump($error_flag);
     
   } else {
     $error_flag[] = "ちゃんとデータ送ってください";
   }
-
-
 
 ?>
 
