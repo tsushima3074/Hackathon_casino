@@ -64,7 +64,21 @@
     .play-btn:hover {
       background: #777;
     }
+    .trade {
+      position: absolute;
+      top: 500px;
+      height: 320px;
+      width: 320px;
+      border-radius: 160px;
+      background-color: #999;
+    }
+    .trade > p {
+      margin-top: 80px;
+      color: #333;
+    }
     .trade-btn {
+      margin-top: 0px;
+      padding: 15px 50px;
       background-color: #40bb62;
     }
     .trade-btn:hover {
@@ -151,11 +165,12 @@
       <a href="slot.php" class="play-btn">スロットをプレイする</a>
     </div>
 
+    <div class="trade ta-center">
+      <p class="f-30 bold">景品交換所</p>
+      <a href="trade.php" class="trade-btn">景品と交換する</a>
+    </div>
   </div>
-  <div class="trade ta-center">
-    <!-- <p class="f-30 bold subtitle">景品交換所</p> -->
-    <a href="trade.php" class="trade-btn">景品と交換する</a>
-  </div>
+  
   <script>
     // slickの設定
     $('.slide-items').slick({
