@@ -1,4 +1,6 @@
 <?php
+  include "header.php";
+  
   session_start();
 
   require_once 'db/user_db.php';
@@ -127,6 +129,7 @@
   </style>
 </head>
 <body>
+  
   <div class="box align-center">
     <p class="subtitle">アカウント編集</p>
     <form action="account_edit.php" method="post">
