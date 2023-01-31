@@ -7,8 +7,7 @@
 
       try {
         $user = new user_db();
-        $data = $user->delete_name_user($id);
-        var_dump($data);  
+        $user->delete_name_user($id);  
         } catch (Exception $e) {
         echo $e;
         }

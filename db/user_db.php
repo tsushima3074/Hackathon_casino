@@ -37,11 +37,11 @@
   
           $stm = $pdo->prepare($sql);
   
-          $stm->bindValue(":id", $id, PDO::PARAM_STR);
+          $stm->bindValue(":id", $id, PDO::PARAM_INT);
   
           $stm->execute();
+          
     }
-
 
   }
 
