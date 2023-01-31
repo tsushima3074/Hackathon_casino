@@ -24,6 +24,29 @@
       return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
+
+    public function delete_name_user($id) {
+      
+          $db_data = get_select_user_data();
+          $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+          //      select_userのコネクションを取得
+          $pdo = $connect->get_select_user();
+  
+          
+          $sql = "DELETE  FROM account WHERE id = :id";
+  
+          $stm = $pdo->prepare($sql);
+  
+          $stm->bindValue(":id", $id, PDO::PARAM_INT);
+  
+          $stm->execute();
+          
+    }
+
+  
+
+
     // アカウント作成関数
     public function create_account($name, $mail, $pw, $salt) {
       $db_data = get_select_user_data();
@@ -68,3 +91,4 @@
 
   }
   
+
