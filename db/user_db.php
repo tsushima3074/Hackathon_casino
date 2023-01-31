@@ -43,9 +43,28 @@
 
        $stm->execute();
 
-      // return $this->login($mail, $pw);
+      return $this->login($mail, $pw);
     }
+
+    public function login($mail, $pw) {
+      $db_data = get_select_user_data();
+      $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+
+  //      insert_userのコネクションを取得
+      $pdo = $connect->get_select_user();
+//      sql文の構築
+      $sql = "SELECT * FROM account WHERE mail = :mail AND password = :pw";
+//      プリペアードステートメントを作成する
+      $stm = $pdo->prepare($sql);
+//      プレースホルダに値をバインドする
+      $stm->bindValue(":mail", $mail, PDO::PARAM_STR);
+      $stm->bindValue(":pw", $pw, PDO::PARAM_STR);
+
+//      sql文の実行
+      $stm->execute();
+
+      return $stm->fetch(PDO::FETCH_ASSOC);
+    }
+
   }
-
-
-
+  

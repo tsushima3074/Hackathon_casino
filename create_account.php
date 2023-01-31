@@ -46,7 +46,8 @@
         if ($user_db->select_mail_user($mail)) {
           $error_flag[] = "既に使われているメールです";
         } else {
-          $user_db->create_account($name, $mail, $hash_pw, $salt);
+          $user = $user_db->create_account($name, $mail, $hash_pw, $salt);
+          $_SESSION["user"] = $user;
         }
       } catch (Exception $e) {
         $error_flag[] = $e;
@@ -58,6 +59,8 @@
   } else {
     $error_flag[] = "ちゃんとデータ送ってください";
   }
+
+  var_dump($_SESSION);
 
 ?>
 
