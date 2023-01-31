@@ -31,17 +31,26 @@
       $error_flag[] = "大文字小文字数字を含め、８文字以上を使ってください";
     }
 
-    // salt用のランダムな文字列の取得
-    $salt = randomStr(16);
+    // エラーを管理する配列が空なら、登録処理を実行
+    if (empty($error_flag)) {
+      // salt用のランダムな文字列の取得
+      $salt = randomStr(16);
 
-    // pwのhash化
-    $hash_pw = hash256($pw, $salt);
+      // pwのhash化
+      $hash_pw = hash256($pw, $salt);
 
-    try {
-      $user_db = new user_db();
-      $user_db->create_account($name, $mail, $hash_pw, $salt);
-    } catch (Exception $e) {
-      $error_flag[] = $e;
+      try {
+        // user_dbクラスのインスタンス作成
+        $user_db = new user_db();
+        // 登録しようとしているメールが使われていないか確認
+        if ($user_db->select_mail_user($mail)) {
+          $error_flag[] = "既に使われているメールです";
+        } else {
+          $user_db->create_account($name, $mail, $hash_pw, $salt);
+        }
+      } catch (Exception $e) {
+        $error_flag[] = $e;
+      }
     }
 
     var_dump($error_flag);
