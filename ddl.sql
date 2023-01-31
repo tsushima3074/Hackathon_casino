@@ -11,3 +11,4 @@ CREATE TABLE users(
 INSERT INTO users VALUES(null, '津嶋勇輝', 21);
 INSERT INTO users VALUES(null, '石木政吏', 20);
 INSERT INTO users VALUES(null, '藤原頼希', 19);
+
