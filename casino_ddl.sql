@@ -22,6 +22,11 @@ create table stand_name (
     PRIMARY KEY(id)
 );
 
+INSERT INTO stand_name VALUES(null, '1betルーレット', 1, 10);
+INSERT INTO stand_name VALUES(null, '10betルーレット', 10, 100);
+INSERT INTO stand_name VALUES(null, '20betスロット', 20, 20);
+INSERT INTO stand_name VALUES(null, '40betスロット', 40, 40);
+
 /*台のテーブル*/
 create table stand (
     id INTEGER AUTO_INCREMENT,
@@ -31,6 +36,15 @@ create table stand (
     PRIMARY KEY(id),
     FOREIGN KEY(standname_id) REFERENCES stand_name(id)
 );
+
+INSERT INTO stand VALUES(1, 10000, -10000, 1);
+INSERT INTO stand VALUES(2, 5000, -5000, 1);
+INSERT INTO stand VALUES(3, 10000, -10000, 2);
+INSERT INTO stand VALUES(4, 5000, -5000, 2);
+INSERT INTO stand VALUES(5, 10000, -10000, 3);
+INSERT INTO stand VALUES(6, 5000, -5000, 3);
+INSERT INTO stand VALUES(7, 10000, -10000, 4);
+INSERT INTO stand VALUES(8, 5000, -50000, 4);
 
 /*カジノについてのテーブル*/
 create table casino (
