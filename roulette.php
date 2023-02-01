@@ -9,8 +9,8 @@
   <?php include "header.php" ?>
 </head>
 <body>
-  
   <div class="flex justify-around">
+    <!-- ルーレット部分 -->
     <div class="display">
       <div id="roulette" class="roulette"></div>
       <div class="c_button">
@@ -24,7 +24,7 @@
       <div class="box">
         <h2 class="rule">ルール</h2>
         <p class="rule-text">
-          最低Bet額 : 10<br>
+          Bet可能額 : 10 ~ 500<br>
           ナンバーを選択し、Bet額を入力することでBetすることが出来ます。<br>
           回すをクリックして選択したナンバーに止まると、<br>
           ポイントを獲得することができます。<br>
@@ -32,12 +32,25 @@
         </p>
       </div>
 
-      <div class="box">
-        <form class="Bet flex">
-          <p class="Bet-text">Betナンバー</p>
-          <input type="text" name="Bet-number" id="" require>
-          <p class="Bet-text">Bet額</p>
-          <input type="text" name="Bet-point" id="" require>
+      <div class="box Bet-box">
+        <form class="Bet-form flex align-center">
+          <p class="Bet-text text1">Betナンバー : </p>
+          <div class="select-div">
+            <select name="Bet-num" class="Bet-select">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+          </div>
+          <p class="Bet-text text2">Bet額 : </p>
+          <input type="num" name="Bet-point" id="" require>
         </form>
       </div>
 
