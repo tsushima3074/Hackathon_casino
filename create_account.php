@@ -54,13 +54,16 @@
       }
     }
 
-    var_dump($error_flag);
-    
-  } else {
-    $error_flag[] = "ちゃんとデータ送ってください";
-  }
+    if (empty($error_flag)) {
+      header("Location:index.php");
+      exit();
+    }
 
-  var_dump($_SESSION);
+    foreach($error_flag as $message) {
+      echo "<script>alert('" . $message . "')</script>";
+    }
+    
+  } 
 
 ?>
 
