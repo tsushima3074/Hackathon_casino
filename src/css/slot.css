@@ -6,7 +6,8 @@
   margin-top: 50px;
 }
 /* ルール部分 */
-.ml {
+.margin {
+  margin-top: 40px;
   margin-left: 200px;
 }
 .rule {

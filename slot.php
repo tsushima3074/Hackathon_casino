@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="ml">
+    <div class="margin">
       <div class="box">
         <h2 class="rule">ルール</h2>
         <p class="rule-text">
