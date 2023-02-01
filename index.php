@@ -1,3 +1,17 @@
+<?php 
+  require_once 'db/casino_db.php';
+  session_start();
+
+  if(isset($_SESSION["user"])) {
+    try{
+      $casino_db = new casino_db();
+      $slot = $casino_db->select_game_list();
+    } catch (Exception $e) {
+      echo $e;
+    }
+  }
+?>  
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -40,7 +54,7 @@
         </div>
         <div class="swiper-pagination"></div>
       </div>
-      <p class="f-30 bold">上限値 : 99999</p>
+      <p class="f-30 bold">上限値 : <?php ?></p>
       <p class="f-30 bold">上限まで残り : 99999</p>
       <a href="slot.php" class="play-btn">スロットをプレイする</a>
     </div>
