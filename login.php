@@ -10,8 +10,8 @@
   if(isset($_POST['mail'])) {
     $mail = $_POST['mail'];
     if(!mail_validation($mail)){
-      $error_flag[] = "メールの形式が間違っています";
-      var_dump($error_flag);
+      $alert = "<script type='text/javascript'>alert('メールの形式が間違っています');</script>";
+      echo $alert;
     } else {
       try {
         $user = new user_db();
@@ -20,20 +20,22 @@
           echo $salt["salt"];
           $pw = $_POST['pw'];
           if(!pw_validation($pw)){
-            $error_flag[] = "パスワードの形式が間違っています";
-            var_dump($error_flag);
+            $alert = "<script type='text/javascript'>alert('パスワードの形式が間違っています');</script>";
+            echo $alert;
           } else {
             $hashed_pw = hash256($pw,$salt["salt"]);
               $user_data=$user->login($mail,$hashed_pw);
               if ($user_data) {
                 $_SESSION["user"] = $user_data;
               } else {
-                echo "pwがまちがえています";
+                $alert = "<script type='text/javascript'>alert('pwがまちがえています');</script>";
+                echo $alert;
               }
               var_dump($_SESSION);
             }
         } else {
-          echo "メールがありません";
+          $alert = "<script type='text/javascript'>alert('メールがありません');</script>";
+          echo $alert;
         }
       } catch (Exception $e) {
         echo $e;
