@@ -5,7 +5,8 @@
   if(isset($_SESSION["user"])) {
     try{
       $casino_db = new casino_db();
-      $slot = $casino_db->select_game_list();
+      $slot = $casino_db->select_slot_list();
+      $roulette = $casino_db->select_roulette_list();
     } catch (Exception $e) {
       echo $e;
     }
@@ -39,6 +40,7 @@
         </div>
         <div class="swiper-pagination"></div>
       </div>
+      
       <p class="f-30 bold">上限値 : 99999</p>
       <p class="f-30 bold">上限まで残り : 99999</p>
       <a href="roulette.php" class="play-btn">ルーレットをプレイする</a>
