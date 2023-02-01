@@ -36,7 +36,7 @@
         // 例外がスローされるように変更する
         $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // pdoインスタンスを戻り値に指定
-        echo "接続成功";
+        // echo "接続成功";
         return $pdo;
       }catch(Exception $e){
         echo "接続エラー:";
