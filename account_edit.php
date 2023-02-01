@@ -45,11 +45,8 @@
         $error_flag[] = $e;
       }
     } 
-  } else {
-    $error_flag = "ちゃんとデータをおくってください";
-  }
+  } 
 
-  // var_dump($error_flag);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -139,8 +136,8 @@
   <div class="box align-center">
     <p class="subtitle">アカウント編集</p>
     <form action="account_edit.php" method="post">
-      <div class="input-center"><label for="mail"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="mail" class="f-input" value=""></span></label></div>
-      <div class="input-center"><label for="name"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="name" class="f-input" value=""></span></label></div><br>
+      <div class="input-center"><label for="mail"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="email" name="mail" id="mail" class="f-input" value="<?php echo $_SESSION["user"]["mail"]; ?>"></span></label></div>
+      <div class="input-center"><label for="name"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="name" class="f-input" value="<?php echo $_SESSION["user"]["name"]; ?>"></span></label></div><br>
       <button type="submit" class="f-btn">編集</button>
     </form>
     <div class="flex justify-around"><a href="password_edit.php" class="f-a">パスワード編集</a><a href="account_delete.php" class="f-a">アカウント削除</a></div>
