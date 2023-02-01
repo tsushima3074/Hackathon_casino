@@ -1,7 +1,8 @@
 /* スライド部分 */
 .swiper {
-  width: 500px;
-  height: 300px;
+  width: 600px;
+  height: 700px;
+  text-align: center;
 }
 
 .swiper-slide {
@@ -9,7 +10,6 @@
   font-size: 18px;
   background: #fff;
   /* Center slide text vertically */
-  display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -22,9 +22,9 @@
 
 .swiper-slide img {
   display: block;
-  width: 300px;
-  height: 250px;
-  object-fit: cover;
+  width: 350px;
+  height: 300px;
+  margin-left: 120px;
 }
 
 .swiper-pagination {

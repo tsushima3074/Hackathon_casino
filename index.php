@@ -16,37 +16,57 @@
 <body>
   <div class="flex justify-around mt-20">
     <div class="roulette ta-center">
-      <p class="f-30 bold">最低Bet額 : 100</p>
+      
     <!-- スライド -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="src/img/icon.png"></div>
-          <div class="swiper-slide"><img src="src/img/icon.png"></div>
+          <div class="swiper-slide">
+            <p class="f-30 bold">最低Bet額 : 100</p>
+            <img src="src/img/icon.png">
+            <p class="f-30 bold">上限値 : 99999</p>
+            <p class="f-30 bold">上限まで残り : 99999</p>
+            <button class="play-btn">ルーレットをプレイする</button>
+          </div>
+          <div class="swiper-slide">
+            <p class="f-30 bold">最低Bet額 : 100</p>
+            <img src="src/img/icon.png">
+            <p class="f-30 bold">上限値 : 99999</p>
+            <p class="f-30 bold">上限まで残り : 99999</p>
+            <button class="play-btn">ルーレットをプレイする</button>
+          </div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
       </div>
-      <p class="f-30 bold">上限値 : 99999</p>
+      <!-- <p class="f-30 bold">上限値 : 99999</p>
       <p class="f-30 bold">上限まで残り : 99999</p>
-      <a href="roulette.php" class="play-btn">ルーレットをプレイする</a>
+      <a href="roulette.php" class="play-btn">ルーレットをプレイする</a> -->
     </div>
 
     <div class="slot ta-center">
-      <p class="f-30 bold ta-center">最低Bet額 : 100</p>
       <!-- スライド -->
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="src/img/slot.png"></div>
-          <div class="swiper-slide"><img src="src/img/slot.png"></div>
+          <div class="swiper-slide">
+            <p class="f-30 bold">最低Bet額 : 100</p>
+            <img src="src/img/slot.png">
+            <p class="f-30 bold">上限値 : 99999</p>
+            <p class="f-30 bold">上限まで残り : 99999</p>
+            <button class="play-btn">ルーレットをプレイする</button>
+          </div>
+          <div class="swiper-slide">
+            <p class="f-30 bold">最低Bet額 : 100</p>
+            <img src="src/img/slot.png">
+            <p class="f-30 bold">上限値 : 99999</p>
+            <p class="f-30 bold">上限まで残り : 99999</p>
+            <button class="play-btn">ルーレットをプレイする</button>
+          </div>
+          <!-- <div class="swiper-slide"><img src="src/img/slot.png"></div>
+          <div class="swiper-slide"><img src="src/img/slot.png"></div> -->
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
       </div>
-      <p class="f-30 bold">上限値 : 99999</p>
-      <p class="f-30 bold">上限まで残り : 99999</p>
-      <a href="slot.php" class="play-btn">スロットをプレイする</a>
     </div>
 
     <div class="trade ta-center">
