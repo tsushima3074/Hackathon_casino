@@ -21,7 +21,28 @@
 //      sql文の実行
       $stm->execute();
 
-      return $stm->fetchAll(PDO::FETCH_ASSOC);
+      return $stm->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function select_mail_user2($mail, $id) {
+      $db_data = get_select_user_data();
+      $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+      //      select_userのコネクションを取得
+      $pdo = $connect->get_select_user();
+//      sql文の構築
+      $sql = "SELECT * FROM account WHERE mail = :mail AND id <> :id";
+
+//      プリペアードステートメントを作成する
+      $stm = $pdo->prepare($sql);
+
+//      プレースホルダに値をバインドする
+      $stm->bindValue(":mail", $mail, PDO::PARAM_STR);
+      $stm->bindValue(":id", $id, PDO::PARAM_INT);
+
+//      sql文の実行
+      $stm->execute();
+
+      return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
 
@@ -89,6 +110,7 @@
       return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
+
     //ソルトを取ってくる
     public function getsalt($mail){
       $db_data = get_select_user_data();
@@ -108,23 +130,24 @@
 
     }
 
-    public function gethashed_pw($mail) {
-
+ 
+    public function update_account($name, $mail, $user_id) {
       $db_data = get_select_user_data();
-      
       $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
 
+  //      insert_userのコネクションを取得
       $pdo = $connect->get_select_user();
-
-      $sql = "SELECT password FROM account WHERE mail = :mail";
-
+//      sql文の構築
+      $sql = "UPDATE account SET name = :name, mail = :mail WHERE id = :id";
+//      プリペアードステートメントを作成する
       $stm = $pdo->prepare($sql);
-
+//      プレースホルダに値をバインドする
       $stm->bindValue(":mail", $mail, PDO::PARAM_STR);
+      $stm->bindValue(":name", $name, PDO::PARAM_STR);
+      $stm->bindValue(":id", $user_id, PDO::PARAM_INT);
 
+//      sql文の実行
       $stm->execute();
-
-      return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
   }
