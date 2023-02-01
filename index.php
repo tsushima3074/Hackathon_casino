@@ -7,6 +7,7 @@
       $casino_db = new casino_db();
       $slot = $casino_db->select_slot_list();
       $roulette = $casino_db->select_roulette_list();
+      var_dump($roulette);
     } catch (Exception $e) {
       echo $e;
     }
@@ -35,20 +36,17 @@
     <!-- スライド -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
+          <?php foreach($roulette as $r) : ?>
           <div class="swiper-slide">
-            <p class="f-30 bold">最低Bet額 : 100</p>
+            <p class="f-30 bold">最低Bet額 : <?php echo $r["min_bet"]; ?></p>
+            <p class="f-30 bold">最高Bet額 : <?php echo $r["max_bet"]; ?></p>
             <img src="src/img/icon.png">
-            <p class="f-30 bold">上限値 : 99999</p>
-            <p class="f-30 bold">上限まで残り : 99999</p>
+            <p class="f-30 bold">上限値 : <?php echo $r["upper_limit"]; ?></p>
+            <p class="f-30 bold">下限値 : <?php echo $r["lower_limit"]; ?></p>
+            <p class="f-30 bold">現在のPOINT : <?php echo $r["now_point"]; ?></p>
             <button class="play-btn">ルーレットをプレイする</button>
           </div>
-          <div class="swiper-slide">
-            <p class="f-30 bold">最低Bet額 : 100</p>
-            <img src="src/img/icon.png">
-            <p class="f-30 bold">上限値 : 99999</p>
-            <p class="f-30 bold">上限まで残り : 99999</p>
-            <button class="play-btn">ルーレットをプレイする</button>
-          </div>
+          <?php endforeach ;?>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -63,6 +61,7 @@
       <!-- スライド -->
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
+          <?php foreach($slot as $s) : ?>
           <div class="swiper-slide">
             <p class="f-30 bold">最低Bet額 : 100</p>
             <img src="src/img/slot.png">
@@ -70,13 +69,7 @@
             <p class="f-30 bold">上限まで残り : 99999</p>
             <button class="play-btn">ルーレットをプレイする</button>
           </div>
-          <div class="swiper-slide">
-            <p class="f-30 bold">最低Bet額 : 100</p>
-            <img src="src/img/slot.png">
-            <p class="f-30 bold">上限値 : 99999</p>
-            <p class="f-30 bold">上限まで残り : 99999</p>
-            <button class="play-btn">ルーレットをプレイする</button>
-          </div>
+          <?php endforeach ;?>
           <!-- <div class="swiper-slide"><img src="src/img/slot.png"></div>
           <div class="swiper-slide"><img src="src/img/slot.png"></div> -->
         </div>
