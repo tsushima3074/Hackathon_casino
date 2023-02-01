@@ -7,7 +7,7 @@
       $casino_db = new casino_db();
       $slot = $casino_db->select_slot_list();
       $roulette = $casino_db->select_roulette_list();
-      var_dump($roulette);
+      // var_dump($roulette);
     } catch (Exception $e) {
       echo $e;
     }
@@ -63,11 +63,12 @@
         <div class="swiper-wrapper">
           <?php foreach($slot as $s) : ?>
           <div class="swiper-slide">
-            <p class="f-30 bold">最低Bet額 : 100</p>
+            <p class="f-30 bold">Bet額 : <?php echo $s["min_bet"]; ?></p>
             <img src="src/img/slot.png">
-            <p class="f-30 bold">上限値 : 99999</p>
-            <p class="f-30 bold">上限まで残り : 99999</p>
-            <button class="play-btn">ルーレットをプレイする</button>
+            <p class="f-30 bold">上限値 : <?php echo $s["upper_limit"]; ?></p>
+            <p class="f-30 bold">下限値 : <?php echo $s["lower_limit"]; ?></p>
+            <p class="f-30 bold">現在のPOINT : <?php echo $s["now_point"]; ?></p>
+            <button class="play-btn">スロットをプレイする</button>
           </div>
           <?php endforeach ;?>
           <!-- <div class="swiper-slide"><img src="src/img/slot.png"></div>
