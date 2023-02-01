@@ -9,38 +9,44 @@
   <?php include "header.php" ?>
 </head>
 <body>
-  <div class="flex justify-around">
-    <!-- ルーレット部分 -->
+  <div class="flex">
+    <!-- スロット部分 -->
+    <div class="slot">
+      <canvas id="slotcan" class="slot-canvas"></canvas>
+      <div class="slot-div">
+        <div class="reel"><a class="slotButton" id="stop1">Stop</a></div>
+        <div class="reel"><a class="slotButton" id="stop2">Stop</a></div>
+        <div class="reel"><a class="slotButton" id="stop3">Stop</a></div>
+      </div>
+      <div>
+        <div class="Start-btn"><a class="slotButton slotStart" id="start">Start</a></div>
+        <div id="slotresult" class="result">　</div>
+      </div>
+    </div>
 
-
-    <div>
+    <div class="ml">
       <div class="box">
         <h2 class="rule">ルール</h2>
         <p class="rule-text">
           Bet可能額 : 10 ~ 500<br>
-          ナンバーを選択し、Bet額を入力することでBetすることが出来ます。<br>
-          回すをクリックして選択したナンバーに止まると、<br>
-          ポイントを獲得することができます。<br>
-          右下にこの台での変動したポイントが表示されます。<br>
-          一度止まった数字には止まらない設定です。<br>
-          リセットを押せば止まった数字の履歴が消えます。
+          Bet額を入力することでBetすることが出来ます。<br>
+          StartをクリックしてStopボタンを押すことで止まります。<br>
+          列がそろうとポイントを獲得することができます。<br>
+          右下にこの台での変動したポイントが表示されます。          
         </p>
       </div>
-
       <div class="box Bet-box">
         <form class="Bet-form flex align-center">
           <p class="Bet-text text2">Bet額 : </p>
           <input type="number" min="10" max="500" require>
         </form>
       </div>
-
       <div class="box">
         <p class="change-point-text">ポイントの変動 : +9999</p>
       </div>
-
     </div>
   </div>
   
-  <script src="src/js/roulettte.js"></script>
+  <script src="src/js/slot.js"></script>
 </body>
 </html>
