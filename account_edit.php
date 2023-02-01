@@ -44,6 +44,9 @@
       } catch (Exception $e) {
         $error_flag[] = $e;
       }
+    }
+    foreach($error_flag as $message) {
+      echo "<script>alert('" . $message . "')</script>";
     } 
   } 
 
