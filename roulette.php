@@ -28,7 +28,9 @@
           ナンバーを選択し、Bet額を入力することでBetすることが出来ます。<br>
           回すをクリックして選択したナンバーに止まると、<br>
           ポイントを獲得することができます。<br>
-          右下にこの台での変動したポイントが表示されます。
+          右下にこの台での変動したポイントが表示されます。<br>
+          一度止まった数字には止まらない設定です。<br>
+          リセットを押せば止まった数字の履歴が消えます。
         </p>
       </div>
 
@@ -36,7 +38,7 @@
         <form class="Bet-form flex align-center">
           <p class="Bet-text text1">Betナンバー : </p>
           <div class="select-div">
-            <select name="Bet-num" class="Bet-select">
+            <select class="Bet-select">
               <option value="0" selected>0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -50,7 +52,7 @@
             </select>
           </div>
           <p class="Bet-text text2">Bet額 : </p>
-          <input type="num" name="Bet-point" id="" require>
+          <input type="number" min="10" max="500" require>
         </form>
       </div>
 
