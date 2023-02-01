@@ -10,8 +10,8 @@
       $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
       $pdo = $connect->get_select_user();
 
-      $sql = "SELECT * FROM stand as s
-              INNER JOIN stand_name as sn ON sn.id = s.standname_id
+      $sql = "SELECT s.id as id, upper_limit, lower_limit, max_bet, min_bet, now_point, name FROM stand as s
+              INNER JOIN  stand_name as sn ON sn.id = s.standname_id
               WHERE standname_id IN(SELECT id FROM stand_name WHERE name LIKE '%ルーレット%')";
 
       $stm = $pdo->prepare($sql);
@@ -29,7 +29,7 @@
         $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
         $pdo = $connect->get_select_user();
   
-        $sql = "SELECT * FROM stand as s
+        $sql = "SELECT s.id as id, upper_limit, lower_limit, max_bet, min_bet, now_point, name FROM stand as s
                 INNER JOIN stand_name as sn ON sn.id = s.standname_id
                 WHERE standname_id IN(SELECT id FROM stand_name WHERE name LIKE '%スロット%')";
   

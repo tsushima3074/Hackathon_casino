@@ -44,7 +44,9 @@
             <p class="f-30 bold">上限値 : <?php echo $r["upper_limit"]; ?></p>
             <p class="f-30 bold">下限値 : <?php echo $r["lower_limit"]; ?></p>
             <p class="f-30 bold">現在のPOINT : <?php echo $r["now_point"]; ?></p>
-            <button class="play-btn">ルーレットをプレイする</button>
+            <form action="./" method="get">
+            <button class="play-btn" name="id" type="submit" value="<?php echo $r["id"]; ?>">ルーレットをプレイする</button>
+          </form>
           </div>
           <?php endforeach ;?>
         </div>
@@ -68,7 +70,9 @@
             <p class="f-30 bold">上限値 : <?php echo $s["upper_limit"]; ?></p>
             <p class="f-30 bold">下限値 : <?php echo $s["lower_limit"]; ?></p>
             <p class="f-30 bold">現在のPOINT : <?php echo $s["now_point"]; ?></p>
-            <button class="play-btn">スロットをプレイする</button>
+            <form action="./" method="get">
+            <button class="play-btn" type="submit" name="id" value="<?php echo $s["id"]; ?>">スロットをプレイする</button>
+          </form>
           </div>
           <?php endforeach ;?>
           <!-- <div class="swiper-slide"><img src="src/img/slot.png"></div>
