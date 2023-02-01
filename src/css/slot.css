@@ -110,7 +110,9 @@
 }
 .result {
   width: 100%;
-  max-width: 360px;
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 600px;
   font-size: 32px;
   color: red;
   font-weight: bold;
