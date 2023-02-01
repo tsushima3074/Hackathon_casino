@@ -17,7 +17,6 @@
         $user = new user_db();
         $salt=$user->getsalt($mail);
         if($salt){
-          echo $salt["salt"];
           $pw = $_POST['pw'];
           if(!pw_validation($pw)){
             $alert = "<script type='text/javascript'>alert('パスワードの形式が間違っています');</script>";
@@ -31,7 +30,8 @@
                 $alert = "<script type='text/javascript'>alert('pwがまちがえています');</script>";
                 echo $alert;
               }
-              var_dump($_SESSION);
+              // var_dump($_SESSION);
+              header("Location:index.php");
             }
         } else {
           $alert = "<script type='text/javascript'>alert('メールがありません');</script>";
@@ -128,8 +128,8 @@
   <div class="box align-center">
     <p class="subtitle">ログイン</p>
     <form action="login.php" method="post" class="account-form">
-      <div class="input-center"><label for="mail"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="mail" class="f-input"></span></label></div><br>
-      <div class="input-center"><label for="pass"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="pw" id="pass" class="f-input"></span></label></div><br>
+      <div class="input-center"><label for="mail"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="email" required name="mail" id="mail" class="f-input"></span></label></div><br>
+      <div class="input-center"><label for="pass"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="password" required name="pw" id="pass" class="f-input"></span></label></div><br>
       <button type="submit" class="f-btn">ログイン</button>
     </form>
     <a href="create_account.php" class="move-login">アカウント登録</a>
