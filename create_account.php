@@ -186,10 +186,10 @@
   <div class="box align-center">
     <p class="subtitle">アカウント登録</p>
     <form action="./create_account.php" method="post" class="account-form">
-      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="" class="f-input"></span></div><br>
-      <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input"></span></div><br>
-      <div class="input-center"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="pw" id="" class="f-input"></span></div><br>
-      <div class="input-center"><p class="f-p">確認用パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="re_pw" id="" class="f-input"></span></div><br>
+      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="email" name="mail" id="" class="f-input" required></span></div><br>
+      <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input" required></span></div><br>
+      <div class="input-center"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="password" name="pw" id="" class="f-input" required></span></div><br>
+      <div class="input-center"><p class="f-p">確認用パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="password" name="re_pw" id="" class="f-input" required></span></div><br>
       <button type="submit" class="f-btn">アカウント作成</button>
     </form>
     <a href="login.php" class="move-login">ログイン画面へ</a>
