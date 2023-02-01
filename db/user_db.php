@@ -45,6 +45,29 @@
       return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
+
+
+    public function delete_name_user($id) {
+      
+          $db_data = get_select_user_data();
+          $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+          //      select_userのコネクションを取得
+          $pdo = $connect->get_select_user();
+  
+          
+          $sql = "DELETE  FROM account WHERE id = :id";
+  
+          $stm = $pdo->prepare($sql);
+  
+          $stm->bindValue(":id", $id, PDO::PARAM_INT);
+  
+          $stm->execute();
+          
+    }
+
+  
+
+
     // アカウント作成関数
     public function create_account($name, $mail, $pw, $salt) {
       $db_data = get_select_user_data();
@@ -87,6 +110,27 @@
       return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
+
+    //ソルトを取ってくる
+    public function getsalt($mail){
+      $db_data = get_select_user_data();
+      $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+
+      $pdo = $connect->get_select_user();
+
+      $sql = "SELECT salt FROM account WHERE mail = :mail";
+
+      $stm = $pdo->prepare($sql);
+
+      $stm->bindValue(":mail", $mail, PDO::PARAM_STR);
+
+      $stm->execute();
+
+      return $stm->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+ 
     public function update_account($name, $mail, $user_id) {
       $db_data = get_select_user_data();
       $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
@@ -106,5 +150,7 @@
       $stm->execute();
     }
 
+
   }
   
+
