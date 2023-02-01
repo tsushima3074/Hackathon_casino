@@ -23,6 +23,8 @@
           <div class="swiper-slide"><img src="src/img/icon.png"></div>
           <div class="swiper-slide"><img src="src/img/icon.png"></div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
       <p class="f-30 bold">上限値 : 99999</p>
@@ -33,11 +35,13 @@
     <div class="slot ta-center">
       <p class="f-30 bold ta-center">最低Bet額 : 100</p>
       <!-- スライド -->
-      <div class="swiper mySwiper">
+      <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="src/img/slot.png"></div>
           <div class="swiper-slide"><img src="src/img/slot.png"></div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
       <p class="f-30 bold">上限値 : 99999</p>
@@ -54,10 +58,23 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script>
     var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
       pagination: {
         el: ".swiper-pagination",
       },
     });
+    const swiper1 = new Swiper(".mySwiper1", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    }) 
   </script>
 </body>
 </html>
