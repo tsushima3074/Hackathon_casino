@@ -116,6 +116,7 @@ function TMamSlot() {
       this.ds[i] = 1;
       this.dv[i] = 0;
     }
+    set_point();
     this.result.innerHTML = '　';
     this.starting();
   };
@@ -176,3 +177,35 @@ function TMamSlot() {
 window.addEventListener('load', function () {
   MamSlot = new TMamSlot();
 });
+
+const set_point = async () => {
+  const url = 'slot_bet.php';
+  const Bet = document.getElementById('set_Bet').value;
+  var form = new FormData();
+  form.append('bet', Bet);
+  const response = await fetch(url, {
+    method: 'POST', // GET POST PUT DELETEなど
+    body: form, // リクエスト本文にフォームデータを設定
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      console.log(json);
+    });
+  // fetch(url)
+  //   .then(function (response) {
+  //     return response.json();
+  //   })
+  //   .then(function (data) {
+  //     console.log(data);
+  //   })
+  //   .catch(function (e) {
+  //     console.log('Error!');
+  //   });
+};
+
+const change_point = async () => {
+  const url = 'slot_bet.php';
+  const change_point = document.getElementById('change_point').value;
+};

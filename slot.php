@@ -38,11 +38,11 @@
       <div class="box Bet-box">
         <form class="Bet-form flex align-center">
           <p class="Bet-text text2">Bet額 : </p>
-          <input type="number" min="10" max="500" require>
+          <input type="number" min="10" max="500" id="set_Bet" value="10">
         </form>
       </div>
       <div class="box">
-        <p class="change-point-text">ポイントの変動 : +9999</p>
+        <p class="change-point-text">ポイントの変動 : <span id="change_point">+9999</span></p>
       </div>
     </div>
   </div>
