@@ -1,42 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アカウント登録</title>
-  <style>
-    .flex {
-      display: flex;
+<?php
+  session_start();
+
+  require_once 'db/user_db.php';
+  require_once 'function/public_function.php';
+  require_once 'function/user_function.php';
+
+  $error_flag = array();
+
+  // postデータの存在チェック
+  if (isset($_POST["mail"], $_POST["name"], $_POST["pw"], $_POST["re_pw"])) {
+    // 変数に代入
+    $mail = $_POST["mail"];
+    $name = $_POST["name"];
+    $pw = $_POST["pw"];
+    $re_pw = $_POST["re_pw"];
+    // pwと確認用pwが一致しているか
+    if ($pw !== $re_pw) {
+      $error_flag[] = "pwが一致していません"; 
     }
-    .justify-center {
-      justify-content: center;
+    // メール形式で送られてきているか
+    if (!mail_validation($mail)) {
+      $error_flag[] = "メール形式が不正です";
     }
-    .align-center {
-      align-items: center;
+    // 名前のバリデーションチェック
+    if (!name_validation($name)) {
+      $error_flag[] = "名前が短い、もしくは長すぎます";
     }
-    .title {
-      font-size: 40px;
-      font-weight: 600;
-    }
-    .subtitle {
-      font-size: 50px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 20px;
-      margin-top: 20px;
+    // pwのバリデーションチェック
+    if (!pw_validation($pw)) {
+      $error_flag[] = "大文字小文字数字を含め、８文字以上を使ってください";
     }
 
-    // var_dump($error_flag);
+    // エラーを管理する配列が空なら、登録処理を実行
+    if (empty($error_flag)) {
+      // salt用のランダムな文字列の取得
+      $salt = randomStr(16);
+
+      // pwのhash化
+      $hash_pw = hash256($pw, $salt);
+
+      try {
+        // user_dbクラスのインスタンス作成
+        $user_db = new user_db();
+        // 登録しようとしているメールが使われていないか確認
+        if ($user_db->select_mail_user($mail)) {
+          $error_flag[] = "既に使われているメールです";
+        } else {
+          $user = $user_db->create_account($name, $mail, $hash_pw, $salt);
+          $_SESSION["user"] = $user;
+        }
+      } catch (Exception $e) {
+        $error_flag[] = $e;
+      }
+    }
+
+    if (empty($error_flag)) {
+      header("Location:index.php");
+      exit();
+    }
+
+    foreach($error_flag as $message) {
+      echo "<script>alert('" . $message . "')</script>";
+    }
     
-  } else {
-    $error_flag[] = "ちゃんとデータ送ってください";
-  }
-
-  // var_dump($_SESSION);
+  } 
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +96,35 @@
       margin-bottom: 20px;
       margin-top: 20px;
     }
-
+  </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アカウント登録</title>
+  <style>
+    .flex {
+      display: flex;
+    }
+    .justify-center {
+      justify-content: center;
+    }
+    .align-center {
+      align-items: center;
+    }
+    .title {
+      font-size: 40px;
+      font-weight: 600;
+    }
+    .subtitle {
+      font-size: 50px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
     .box {
       width: 40%;
       height: 750px;
@@ -121,10 +180,10 @@
   <div class="box align-center">
     <p class="subtitle">アカウント登録</p>
     <form action="./create_account.php" method="post" class="account-form">
-      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="text" name="mail" id="" class="f-input"></span></div><br>
-      <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input"></span></div><br>
-      <div class="input-center"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="pw" id="" class="f-input"></span></div><br>
-      <div class="input-center"><p class="f-p">確認用パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="text" name="re_pw" id="" class="f-input"></span></div><br>
+      <div class="input-center"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="email" name="mail" id="" class="f-input" required></span></div><br>
+      <div class="input-center"><p class="f-p">ユーザ名</p><span class="flex"><img src="img/user.png" width="40"><input type="text" name="name" id="" class="f-input" required></span></div><br>
+      <div class="input-center"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="password" name="pw" id="" class="f-input" required></span></div><br>
+      <div class="input-center"><p class="f-p">確認用パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="password" name="re_pw" id="" class="f-input" required></span></div><br>
       <button type="submit" class="f-btn">アカウント作成</button>
     </form>
     <a href="login.php" class="move-login">ログイン画面へ</a>
