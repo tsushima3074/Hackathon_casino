@@ -82,12 +82,13 @@
             </select>
           </div>
           <p class="Bet-text text2">Bet額 : </p>
-          <input type="number" min="<?php echo $roulette["min_bet"]; ?>"  max="<?php echo $_SESSION['user']['point'] < $roulette['max_bet'] ? $_SESSION['user']['point'] : $roulette['max_bet'] ?>" value="<?php echo $roulette['min_bet']; ?>" id="Bet" require>
+
+          <input type="number" min="<?php echo $roulette["min_bet"]; ?>" max="<?php echo $_SESSION['user']['point'] < $roulette['max_bet'] ? $_SESSION['user']['point'] : $roulette['max_bet'] ?>" value="<?php echo $roulette['min_bet']; ?>" id="Bet" require>
         </form>
       </div>
 
       <div class="box">
-        <p class="change-point-text">ポイントの変動 : <?php  ?></p>
+        <p class="change-point-text">ポイントの変動 : +9999</p>
       </div>
     </div>
   </div>
