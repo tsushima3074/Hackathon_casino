@@ -33,7 +33,7 @@
   <div class="column column03">
     <ul>
       <?php foreach($gifts as $gift): ?>
-        <li><img src="src/img/ダウンロード.jfif" /><p><?php echo $gift["gift"]; ?></p><span>交換ポイント : <?php echo $gift["exchange_point"] ?></span><button class="trade-btn">交換する</button></li>
+        <li><img src="src/img/ダウンロード.jfif" /><p><?php echo $gift["gift"]; ?></p><span>交換ポイント : <?php echo $gift["exchange_point"] ?></span><button class="trade-btn" disabled>交換する</button></li>
       <?php endforeach; ?>
     </ul>
   </div>
