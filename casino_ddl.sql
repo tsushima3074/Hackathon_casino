@@ -52,6 +52,13 @@ create table gift_name(
     PRIMARY KEY(id)
 );
 
+INSERT INTO gift_name VALUES(NULL, 0, '1500円apple card');
+INSERT INTO gift_name VALUES(NULL, 0, '5000円apple card');
+INSERT INTO gift_name VALUES(NULL, 0, '10000円apple card');
+INSERT INTO gift_name VALUES(NULL, 0, '1500円Amazon gift card');
+INSERT INTO gift_name VALUES(NULL, 0, '5000円Amazon gift card');
+INSERT INTO gift_name VALUES(NULL, 0, '10000円Amazon gift card');
+
 /*景品の中間テーブル*/
 create table gift(
     id INTEGER AUTO_INCREMENT,
