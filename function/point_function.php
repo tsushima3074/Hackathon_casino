@@ -13,3 +13,8 @@
       $point_db->gift_point($user_id, $gift_id, $point);
     }
   }
+
+
+  // 実行テスト
+  // point_function(7, 1, 1, 100);
+  // point_function(7, 1, 1, -100);

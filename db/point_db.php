@@ -2,7 +2,7 @@
   include dirname(__FILE__) . '\connect.php';
   include dirname(__FILE__) . "\get_db_data.php";
 
-  class user_db {
+  class point_db {
 
     public function casino_point($user_id, $stand_id, $point) {
       $db_data = get_select_user_data();
@@ -10,13 +10,15 @@
       //      select_userのコネクションを取得
       $pdo = $connect->get_select_user();
 //      sql文の構築
-      $sql = "SELECT * FROM account WHERE mail = :mail";
+      $sql = "INSERT INTO casino VALUES(NULL, :point, :stand_id, :user_id)";
 
 //      プリペアードステートメントを作成する
       $stm = $pdo->prepare($sql);
 
 //      プレースホルダに値をバインドする
-      $stm->bindValue(":mail", $mail, PDO::PARAM_STR);
+      $stm->bindValue(":point", $point, PDO::PARAM_INT);
+      $stm->bindValue(":stand_id", $stand_id, PDO::PARAM_INT);
+      $stm->bindValue(":user_id", $user_id, PDO::PARAM_INT);
 
 //      sql文の実行
       $stm->execute();
