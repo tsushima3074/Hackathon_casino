@@ -28,6 +28,7 @@ create table stand (
     upper_limit INTEGER,
     lower_limit INTEGER,
     standname_id INTEGER,
+    now_point INTEGER DEFAULT 0,
     PRIMARY KEY(id),
     FOREIGN KEY(standname_id) REFERENCES stand_name(id)
 );
