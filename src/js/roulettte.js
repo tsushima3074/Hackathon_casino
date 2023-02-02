@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const set_point = async () => {
   const url = 'roulette_bet.php';
+  let param_url = new URL(window.location.href);
   let params = url.searchParams;
   const Bet = document.getElementById('Bet').value;
   var form = new FormData();
