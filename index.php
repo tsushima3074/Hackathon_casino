@@ -1,6 +1,6 @@
 <?php 
-  require_once 'db/casino_db.php';
   session_start();
+  require_once 'db/casino_db.php';
 
   if(isset($_SESSION["user"])) {
     try{
@@ -11,6 +11,8 @@
     } catch (Exception $e) {
       echo $e;
     }
+  } else {
+    header("Location:login.php");
   }
 ?>  
 
@@ -44,7 +46,7 @@
             <p class="f-30 bold">上限値 : <?php echo $r["upper_limit"]; ?></p>
             <p class="f-30 bold">下限値 : <?php echo $r["lower_limit"]; ?></p>
             <p class="f-30 bold">現在のPOINT : <?php echo $r["now_point"]; ?></p>
-            <form action="./" method="get">
+            <form action="roulette.php" method="get">
             <button class="play-btn" name="id" type="submit" value="<?php echo $r["id"]; ?>">ルーレットをプレイする</button>
           </form>
           </div>
