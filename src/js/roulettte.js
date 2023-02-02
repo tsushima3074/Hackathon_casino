@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function start_set() {
     document.getElementById('start').disabled = true;
     document.getElementById('stop').disabled = false;
-    document.getElementById('reset').disabled = false;
+    // document.getElementById('reset').disabled = false;
     if (first === false) {
       interval = setInterval(start_go, 100);
       set_point();
@@ -87,26 +87,26 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   //リセット押下
-  function reset_set() {
-    clearInterval(interval);
-    first = false;
-    document.getElementById('start').disabled = false;
-    for (var j = 0; j < 10; j++) {
-      let all = document.getElementById('cil' + j);
-      all.classList.remove('pink');
-      all.classList.remove('red');
-    }
-    num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  }
+  // function reset_set() {
+  //   clearInterval(interval);
+  //   first = false;
+  //   document.getElementById('start').disabled = false;
+  //   for (var j = 0; j < 10; j++) {
+  //     let all = document.getElementById('cil' + j);
+  //     all.classList.remove('pink');
+  //     all.classList.remove('red');
+  //   }
+  //   num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // }
 
   const starter = document.getElementById('start');
   const stopper = document.getElementById('stop');
-  const resetter = document.getElementById('reset');
+  // const resetter = document.getElementById('reset');
   starter.addEventListener('click', start_set, false);
   stopper.addEventListener('click', stop_set, false);
-  resetter.addEventListener('click', reset_set, false);
+  // resetter.addEventListener('click', reset_set, false);
   document.getElementById('stop').disabled = true;
-  document.getElementById('reset').disabled = true;
+  // document.getElementById('reset').disabled = true;
 });
 
 const set_point = async () => {
