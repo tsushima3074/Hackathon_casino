@@ -61,8 +61,6 @@
           回すをクリックして選択したナンバーに止まると、<br>
           ポイントを獲得することができます。<br>
           右下にこの台での変動したポイントが表示されます。<br>
-          一度止まった数字には止まらない設定です。<br>
-          リセットを押せば止まった数字の履歴が消えます。
         </p>
       </div>
 
@@ -70,7 +68,7 @@
         <form class="Bet-form flex align-center">
           <p class="Bet-text text1">Betナンバー : </p>
           <div class="select-div">
-            <select class="Bet-select">
+            <select class="Bet-select" id="Betnum">
               <option value="0" selected>0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -79,13 +77,12 @@
               <option value="5">5</option>
               <option value="6">6</option>
               <option value="7">7</option>
-              <option value="2">8</option>
-              <option value="2">9</option>
-
+              <option value="8">8</option>
+              <option value="9">9</option>
             </select>
           </div>
           <p class="Bet-text text2">Bet額 : </p>
-          <input type="number" min="<?php echo $roulette["min_bet"]; ?>" max="<?php echo $roulette["max_bet"]; ?>" value="<?php $roulette['min_bet']; ?>" id="Bet" require>
+          <input type="number" min="<?php echo $roulette["min_bet"]; ?>" max="<?php echo $roulette["max_bet"]; ?>" value="<?php echo $roulette['min_bet']; ?>" id="Bet" require>
         </form>
       </div>
 
