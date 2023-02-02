@@ -36,10 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function start_set() {
     document.getElementById('start').disabled = true;
     document.getElementById('stop').disabled = false;
-    document.getElementById('reset').disabled = false;
+    // document.getElementById('reset').disabled = false;
     if (first === false) {
       interval = setInterval(start_go, 100);
       set_point();
+      for (var j = 0; j < 10; j++) {
+        let all = document.getElementById('cil' + j);
+        all.classList.remove('pink');
+        all.classList.remove('red');
+      }
       first = true;
     }
   }
@@ -64,37 +69,44 @@ document.addEventListener('DOMContentLoaded', function () {
     clearInterval(interval);
     first = false;
     let red_number = document.querySelector('.red'); //.redクラスのついているものを取得
-    console.log(grid);
-    num.splice(grid, 1); //配列からred_numberのところを1つ削除
-    console.log(num);
+    // console.log(grid);
+    // num.splice(grid, 1); //配列からred_numberのところを1つ削除
+    // console.log(num);
     red_number.classList.remove('red');
     red_number.classList.add('pink');
     if (num.length === 0) {
       document.getElementById('start').disabled = true;
     }
+    const Bet_num = document.getElementById('Betnum');
+    console.log(Bet_num.value);
+    console.log(number);
+    if (number == Bet_num.value) {
+      console.log('hit');
+      add_point();
+    }
   }
 
   //リセット押下
-  function reset_set() {
-    clearInterval(interval);
-    first = false;
-    document.getElementById('start').disabled = false;
-    for (var j = 0; j < 10; j++) {
-      let all = document.getElementById('cil' + j);
-      all.classList.remove('pink');
-      all.classList.remove('red');
-    }
-    num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  }
+  // function reset_set() {
+  //   clearInterval(interval);
+  //   first = false;
+  //   document.getElementById('start').disabled = false;
+  //   for (var j = 0; j < 10; j++) {
+  //     let all = document.getElementById('cil' + j);
+  //     all.classList.remove('pink');
+  //     all.classList.remove('red');
+  //   }
+  //   num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // }
 
   const starter = document.getElementById('start');
   const stopper = document.getElementById('stop');
-  const resetter = document.getElementById('reset');
+  // const resetter = document.getElementById('reset');
   starter.addEventListener('click', start_set, false);
   stopper.addEventListener('click', stop_set, false);
-  resetter.addEventListener('click', reset_set, false);
+  // resetter.addEventListener('click', reset_set, false);
   document.getElementById('stop').disabled = true;
-  document.getElementById('reset').disabled = true;
+  // document.getElementById('reset').disabled = true;
 });
 
 const set_point = async () => {
@@ -105,23 +117,23 @@ const set_point = async () => {
   var form = new FormData();
   form.append('bet', -Bet);
   form.append('id', params.get('id'));
+  console.log("setpoint呼ぶよ")
   const response = await fetch(url, {
     method: 'POST', // GET POST PUT DELETEなど
     body: form, // リクエスト本文にフォームデータを設定
-  })
-    
+  });
 };
 
 const add_point = async () => {
-  const url = 'roulette_bet.php';
+  const url = 'roulette_add.php';
   let param_url = new URL(window.location.href);
   let params = param_url.searchParams;
   const Bet = document.getElementById('Bet').value;
   const addBet = Bet * 10;
   var form = new FormData();
-  console.log("送信するよ")
   form.append('bet', +addBet);
   form.append('id', params.get('id'));
+  console.log("呼ぶよ");
   const response = await fetch(url, {
     method: 'POST', // GET POST PUT DELETEなど
     body: form, // リクエスト本文にフォームデータを設定

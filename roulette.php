@@ -49,7 +49,7 @@
       <div class="c_button">
         <button id ="start">スタート</button>
         <button id ="stop">ストップ</button>
-        <button id ="reset">リセット</button>
+        <!-- <button id ="reset">リセット</button> -->
       </div>
     </div>
     <div>
@@ -87,7 +87,7 @@
       </div>
 
       <div class="box">
-        <p class="change-point-text">ポイントの変動 : +99999</p>
+        <p class="change-point-text">ポイントの変動 : <?php  ?></p>
       </div>
     </div>
   </div>
