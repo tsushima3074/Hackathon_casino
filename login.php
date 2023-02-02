@@ -122,14 +122,14 @@
 </head>
 <body>
   <div class="flex justify-center align-center">
-    <img src="img/icon.png" alt="icon">
+    <img src="src/img/icon.png" alt="icon">
     <span class="title">じょびカジノ</span>
   </div>
   <div class="box align-center">
     <p class="subtitle">ログイン</p>
     <form action="login.php" method="post" class="account-form">
-      <div class="input-center"><label for="mail"><p class="f-p">メールアドレス</p><span class="flex"><img src="img/mail.png" width="40"><input type="email" required name="mail" id="mail" class="f-input"></span></label></div><br>
-      <div class="input-center"><label for="pass"><p class="f-p">パスワード</p><span class="flex"><img src="img/pass.png" width="40"><input type="password" required name="pw" id="pass" class="f-input"></span></label></div><br>
+      <div class="input-center"><label for="mail"><p class="f-p">メールアドレス</p><span class="flex"><img src="src/img/mail.png" width="40"><input type="email" required name="mail" id="mail" class="f-input"></span></label></div><br>
+      <div class="input-center"><label for="pass"><p class="f-p">パスワード</p><span class="flex"><img src="src/img/pass.png" width="40"><input type="password" required name="pw" id="pass" class="f-input"></span></label></div><br>
       <button type="submit" class="f-btn">ログイン</button>
     </form>
     <a href="create_account.php" class="move-login">アカウント登録</a>

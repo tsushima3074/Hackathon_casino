@@ -33,19 +33,18 @@ create table stand (
     upper_limit INTEGER,
     lower_limit INTEGER,
     standname_id INTEGER,
-    now_point INTEGER DEFAULT 0,
     PRIMARY KEY(id),
     FOREIGN KEY(standname_id) REFERENCES stand_name(id)
 );
 
-INSERT INTO stand VALUES(1, 10000, -10000, 1);
-INSERT INTO stand VALUES(2, 5000, -5000, 1);
-INSERT INTO stand VALUES(3, 10000, -10000, 2);
-INSERT INTO stand VALUES(4, 5000, -5000, 2);
-INSERT INTO stand VALUES(5, 10000, -10000, 3);
-INSERT INTO stand VALUES(6, 5000, -5000, 3);
-INSERT INTO stand VALUES(7, 10000, -10000, 4);
-INSERT INTO stand VALUES(8, 5000, -50000, 4);
+INSERT INTO stand VALUES(1, 10000, -10000, 1, 0);
+INSERT INTO stand VALUES(2, 5000, -5000, 1, 0);
+INSERT INTO stand VALUES(3, 10000, -10000, 2, 0);
+INSERT INTO stand VALUES(4, 5000, -5000, 2, 0);
+INSERT INTO stand VALUES(5, 10000, -10000, 3, 0);
+INSERT INTO stand VALUES(6, 5000, -5000, 3, 0);
+INSERT INTO stand VALUES(7, 10000, -10000, 4, 0);
+INSERT INTO stand VALUES(8, 5000, -50000, 4, 0);
 
 /*カジノについてのテーブル*/
 create table casino (
@@ -66,13 +65,6 @@ create table gift_name(
     gift VARCHAR(32),
     PRIMARY KEY(id)
 );
-
-INSERT INTO gift_name VALUES(NULL, 1500, '1500円apple card');
-INSERT INTO gift_name VALUES(NULL, 5000, '5000円apple card');
-INSERT INTO gift_name VALUES(NULL, 10000, '10000円apple card');
-INSERT INTO gift_name VALUES(NULL, 1500, '1500円Amazon gift card');
-INSERT INTO gift_name VALUES(NULL, 5000, '5000円Amazon gift card');
-INSERT INTO gift_name VALUES(NULL, 10000, '10000円Amazon gift card');
 
 /*景品の中間テーブル*/
 create table gift(
