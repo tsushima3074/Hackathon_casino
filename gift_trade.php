@@ -33,9 +33,26 @@
   <div class="column column03">
     <ul>
       <?php foreach($gifts as $gift): ?>
-        <li><img src="src/img/ダウンロード.jfif" /><p><?php echo $gift["gift"]; ?></p><span>交換ポイント : <?php echo $gift["exchange_point"] ?></span><button class="trade-btn" disabled>交換する</button></li>
+        <li><img src="src/img/ダウンロード.jfif" /><p><?php echo $gift["gift"]; ?></p><span>交換ポイント : <?php echo $gift["exchange_point"] ?></span><button class="trade-btn" <?php echo $_SESSION["user"]["point"] < $gift["exchange_point"] ? "disabled" : ""; ?> onClick="button_click(<?php echo $gift["id"] ?>)">交換する</button></li>
       <?php endforeach; ?>
     </ul>
   </div>
+
+  <script>
+    const button_click = async (gift_id) => {
+      const url = 'buy_gift.php';
+      var form = new FormData();
+      console.log(gift_id)
+      form.append('id', gift_id);
+      const response = await fetch(url, {
+        method: 'POST', // GET POST PUT DELETEなど
+        body: form, // リクエスト本文にフォームデータを設定
+      }).then(res => {
+        return res.json()
+      }).then(json => {
+        alert(json.message)
+      })
+    }
+  </script>
 </body>
 </html>

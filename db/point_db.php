@@ -1,6 +1,6 @@
 <?php  
-  include dirname(__FILE__) . '\connect.php';
-  include dirname(__FILE__) . "\get_db_data.php";
+  require_once dirname(__FILE__) . '\connect.php';
+  require_once dirname(__FILE__) . "\get_db_data.php";
 
   class point_db {
 
