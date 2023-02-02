@@ -96,13 +96,7 @@
       margin-bottom: 20px;
       margin-top: 20px;
     }
-    // var_dump($error_flag);
-    
-  } else {
-    $error_flag[] = "ちゃんとデータ送ってください";
-  }
-  // var_dump($_SESSION);
-?>
+  </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
