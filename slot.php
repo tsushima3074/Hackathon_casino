@@ -8,8 +8,8 @@
       try{
         $id = $_GET["id"];
         $casino_db = new casino_db();
-        $roulette = $casino_db->select_slot_bet($id);
-        // var_dump($roulette);
+        $slot = $casino_db->select_roulette_bet($id);
+        // var_dump($slot);
       } catch (Exception $e) {
         echo $e;
       }
@@ -52,7 +52,7 @@
       <div class="box">
         <h2 class="rule">ルール</h2>
         <p class="rule-text">
-          Bet可能額 : <?php echo $slot["min_bet"]; ?> ~ <?php echo $slot["max_bet"]; ?><br>
+          Bet額 : <?php echo $slot["min_bet"];?><br>
           Bet額を入力することでBetすることが出来ます。<br>
           StartをクリックしてStopボタンを押すことで止まります。<br>
           列がそろうとポイントを獲得することができます。<br>
@@ -62,9 +62,10 @@
       <div class="box Bet-box">
         <form class="Bet-form flex align-center">
           <p class="Bet-text text2">Bet額 : </p>
-          <input type="number" min="<?php echo $slot["min_bet"]; ?>" 
-            max="<?php echo $_SESSION['user']['point'] < $slot['max_bet'] ? $_SESSION['user']['point'] : $slot['max_bet'] ?>"
-            value="<?php echo $slot['min_bet']; ?>" id="Bet" require>
+          <input type="number" 
+            min="<?php echo $slot['max_bet']; ?>"
+            max="<?php echo $_SESSION['user']['point'] > $slot['max_bet'] ? $slot['max_bet']  : 0 ?>"
+            value="<?php echo $_SESSION['user']['point'] > $slot['max_bet'] ? $slot['max_bet']  : 0 ?>"id="Bet" require readonly="readonly">
         </form>
       </div>
       <div class="box">
