@@ -16,5 +16,6 @@
 
 
   // 実行テスト
+    // casinoのテスト
   // point_function(7, 1, 1, 100);
   // point_function(7, 1, 1, -100);

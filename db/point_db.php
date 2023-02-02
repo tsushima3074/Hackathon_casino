@@ -32,10 +32,12 @@
       //      select_userのコネクションを取得
       $pdo = $connect->get_select_user();
 //      sql文の構築
-      $sql = "SELECT * FROM account WHERE mail = :mail";
+      $sql = "INSERT INTO gift VALUES(NULL, :gift_id, :user_id, :number, 0)";
 
 //      プリペアードステートメントを作成する
-      $stm = $pdo->prepare($sql);
+      $stm->bindValue(":number", $number, PDO::PARAM_INT);
+      $stm->bindValue(":gift_id", $gift_id, PDO::PARAM_INT);
+      $stm->bindValue(":user_id", $user_id, PDO::PARAM_INT);
 
 //      プレースホルダに値をバインドする
       $stm->bindValue(":mail", $mail, PDO::PARAM_STR);
