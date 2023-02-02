@@ -17,7 +17,7 @@
       // 最新のuserテーブルのpointが購入ポイントより高いか
       if ($user_db->get_user_point($_SESSION["user"]["id"]) >= $gift_point) {
         point_function($_SESSION["user"]["id"], $_POST["id"], 2, 0);
-        // TODO accountテーブルのpointを減算する関数を呼ぶこと
+        $user_db->update_user_point($_SESSION["user"]["id"], -1 * $gift_point);
         $_SESSION["user"] = $user_db->select_mail_user($_SESSION["user"]["mail"]);
       } else {
         $response["message"] = "ポイントが足りません";

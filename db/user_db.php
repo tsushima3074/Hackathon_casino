@@ -169,6 +169,24 @@
       return $stm->fetch(PDO::FETCH_ASSOC)["point"];
     }
 
+    public function update_user_point($id, $point) {
+      $db_data = get_select_user_data();
+      $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+
+  //      insert_userのコネクションを取得
+      $pdo = $connect->get_select_user();
+//      sql文の構築
+      $sql = "UPDATE account SET point = point + :point WHERE id = :id";
+//      プリペアードステートメントを作成する
+      $stm = $pdo->prepare($sql);
+//      プレースホルダに値をバインドする
+      $stm->bindValue(":id", $id, PDO::PARAM_INT);
+      $stm->bindValue(":point", $point, PDO::PARAM_INT);
+
+//      sql文の実行
+      $stm->execute();
+    }
+
 
   }
   
