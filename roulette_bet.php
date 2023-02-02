@@ -4,15 +4,15 @@
   require_once 'db/point_db.php';
   if(isset($_SESSION["user"], $_POST["bet"], $_POST["id"])) {
     $point_db = new point_db();
-    point_function($_SESSION["user"]["id"], $_POST["id"], 1, $_POST["bet"]);
     $point =  $point_db->get_user_point($_SESSION["user"]["id"]);
     if($_POST["bet"] > $point) {
-      $alert = "<script type='text/javascript'>alert('betが出来ません');</script>";
-      echo $alert;
-    } else {
-      $user_point = $point_db->update_point($_SESSION["user"]["id"], $_POST["bet"]);
-    }
-  }
+        point_function($_SESSION["user"]["id"], $_POST["id"], 1, $_POST["bet"]);
+        $user_point = $point_db->update_point($_SESSION["user"]["id"], $_POST["bet"]);
+      }
+  } 
+  
+
+  
 
 
 // $data = [
