@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //start押下
   function start_go() {
+    set_point();
     for (var k = 0; k < item_length; k++) {
       let div_number = document.getElementById('cil' + [k]); //表示上のidの取得
       div_number.classList.remove('red'); //.redを消す
@@ -98,9 +99,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const set_point = async () => {
   const url = 'roulette_bet.php';
+  let params = url.searchParams;
   const Bet = document.getElementById('Bet').value;
   var form = new FormData();
   form.append('bet', Bet);
+  form.append('id', params.get('id'));
   const response = await fetch(url, {
     method: 'POST', // GET POST PUT DELETEなど
     body: form, // リクエスト本文にフォームデータを設定
