@@ -85,7 +85,7 @@
 
     <div class="trade ta-center">
       <p class="f-30 bold">景品交換所</p>
-      <a href="trade.php" class="trade-btn">景品と交換する</a>
+      <a href="gift_trade.php" class="trade-btn">景品と交換する</a>
     </div>
   </div>
   
