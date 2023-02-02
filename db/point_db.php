@@ -26,21 +26,20 @@
       return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function gift_point($user_id, $gift_id, $number) {
+    public function gift_point($user_id, $gift_id) {
       $db_data = get_select_user_data();
       $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
       //      select_userのコネクションを取得
       $pdo = $connect->get_select_user();
 //      sql文の構築
-      $sql = "INSERT INTO gift VALUES(NULL, :gift_id, :user_id, :number, 0)";
+      $sql = "INSERT INTO gift VALUES(NULL, :gift_id, :user_id, (SELECT exchange_point FROM gift_name WHERE id = :id), 0)";
 
+      //      プリペアードステートメントを作成する
+      $stm = $pdo->prepare($sql);
 //      プリペアードステートメントを作成する
-      $stm->bindValue(":number", $number, PDO::PARAM_INT);
       $stm->bindValue(":gift_id", $gift_id, PDO::PARAM_INT);
       $stm->bindValue(":user_id", $user_id, PDO::PARAM_INT);
-
-//      プレースホルダに値をバインドする
-      $stm->bindValue(":mail", $mail, PDO::PARAM_STR);
+      $stm->bindValue(":id", $gift_id, PDO::PARAM_INT);
 
 //      sql文の実行
       $stm->execute();

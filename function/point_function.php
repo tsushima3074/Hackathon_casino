@@ -10,7 +10,7 @@
     if ($type === 1) {
       $point_db->casino_point($user_id, $id, $point);
     } else {
-      $point_db->gift_point($user_id, $gift_id, $point);
+      $point_db->gift_point($user_id, $id);
     }
   }
 
@@ -19,3 +19,6 @@
     // casinoのテスト
   // point_function(7, 1, 1, 100);
   // point_function(7, 1, 1, -100);
+
+  // giftのテスト
+  // point_function(7, 7, 2, 0);
