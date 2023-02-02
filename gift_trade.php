@@ -4,7 +4,17 @@
 
   require_once 'db/gift_db.php';
 
-  
+  if (isset($_SESSION["user"])) {
+    $gift_db = new gift_db();
+    try {
+      $gifts = $gift_db->select_gift();
+      // var_dump($gifts);
+    } catch (Exception $e) {
+      echo $e;
+    }
+  } else {
+    header("Location:index.php");
+  }
 
 ?>
 
@@ -22,12 +32,9 @@
   <p class="subtitle">景品交換所</p>
   <div class="column column03">
     <ul>
-      <li><img src="src/img/ダウンロード.jfif" /><p>商品名</p><span>交換ポイント : 2,600円</span><button class="trade-btn">交換する</button></li>
-      <li><img src="src/img/ダウンロード.jfif" /><p>商品名</p><span>交換ポイント : 2,600円</span><button class="trade-btn">交換する</button></li>
-      <li><img src="src/img/ダウンロード.jfif" /><p>商品名</p><span>交換ポイント : 2,600円</span><button class="trade-btn">交換する</button></li>
-      <li><img src="src/img/ダウンロード.jfif" /><p>商品名</p><span>交換ポイント : 2,600円</span><button class="trade-btn">交換する</button></li>
-      <li><img src="src/img/ダウンロード.jfif" /><p>商品名</p><span>交換ポイント : 2,600円</span><button class="trade-btn">交換する</button></li>
-      <li><img src="src/img/ダウンロード.jfif" /><p>商品名</p><span>交換ポイント : 2,600円</span><button class="trade-btn">交換する</button></li>
+      <?php foreach($gifts as $gift): ?>
+        <li><img src="src/img/ダウンロード.jfif" /><p><?php echo $gift["gift"]; ?></p><span>交換ポイント : <?php echo $gift["exchange_point"] ?></span><button class="trade-btn">交換する</button></li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </body>
