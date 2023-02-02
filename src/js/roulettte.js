@@ -95,3 +95,20 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('stop').disabled = true;
   document.getElementById('reset').disabled = true;
 });
+
+const set_point = async () => {
+  const url = 'roulette_bet.php';
+  const Bet = document.getElementById('Bet').value;
+  var form = new FormData();
+  form.append('bet', Bet);
+  const response = await fetch(url, {
+    method: 'POST', // GET POST PUT DELETEなど
+    body: form, // リクエスト本文にフォームデータを設定
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      console.log(json);
+    });
+};

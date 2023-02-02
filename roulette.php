@@ -85,7 +85,7 @@
             </select>
           </div>
           <p class="Bet-text text2">Bet額 : </p>
-          <input type="number" min="<?php echo $roulette["min_bet"]; ?>" max="<?php echo $roulette["max_bet"]; ?>" require>
+          <input type="number" min="<?php echo $roulette["min_bet"]; ?>" max="<?php echo $roulette["max_bet"]; ?>" value="<?php $roulette['min_bet']; ?>" id="Bet" require>
         </form>
       </div>
 
