@@ -38,7 +38,7 @@
       <div class="box Bet-box">
         <form class="Bet-form flex align-center">
           <p class="Bet-text text2">Bet額 : </p>
-          <input type="number" min="10" max="500" id="set_Bet" value="10">
+          <input type="number" min="10" max="500" id="Bet" value="10">
         </form>
       </div>
       <div class="box">

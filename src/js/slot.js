@@ -116,6 +116,7 @@ function TMamSlot() {
       this.ds[i] = 1;
       this.dv[i] = 0;
     }
+    console.log('set_point呼び出し');
     set_point();
     this.result.innerHTML = '　';
     this.starting();
@@ -156,6 +157,8 @@ function TMamSlot() {
       this.status = 0;
       if (this.d[0] == 700 && this.d[1] == 700 && this.d[2] == 700) {
       } else if (this.d[0] == this.d[1] && this.d[1] == this.d[2]) {
+        console.log('add_point呼び出し');
+        add_point();
         this.result.innerHTML = 'あたり';
       } else if (
         this.d[0] == this.d[1] ||
@@ -180,32 +183,29 @@ window.addEventListener('load', function () {
 
 const set_point = async () => {
   const url = 'slot_bet.php';
-  const Bet = document.getElementById('set_Bet').value;
+  let param_url = new URL(window.location.href);
+  let params = param_url.searchParams;
+  const Bet = document.getElementById('Bet').value;
   var form = new FormData();
-  form.append('bet', Bet);
+  form.append('bet', -Bet);
+  form.append('id', params.get('id'));
   const response = await fetch(url, {
     method: 'POST', // GET POST PUT DELETEなど
     body: form, // リクエスト本文にフォームデータを設定
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .then((json) => {
-      console.log(json);
-    });
-  // fetch(url)
-  //   .then(function (response) {
-  //     return response.json();
-  //   })
-  //   .then(function (data) {
-  //     console.log(data);
-  //   })
-  //   .catch(function (e) {
-  //     console.log('Error!');
-  //   });
+  });
 };
 
-const change_point = async () => {
+const add_point = async () => {
   const url = 'slot_bet.php';
-  const change_point = document.getElementById('change_point').value;
+  let param_url = new URL(window.location.href);
+  let params = param_url.searchParams;
+  const Bet = document.getElementById('Bet').value;
+  const addBet = Bet * 10;
+  var form = new FormData();
+  form.append('bet', addBet);
+  form.append('id', params.get('id'));
+  const response = await fetch(url, {
+    method: 'POST', // GET POST PUT DELETEなど
+    body: form, // リクエスト本文にフォームデータを設定
+  });
 };
