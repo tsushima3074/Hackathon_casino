@@ -96,41 +96,6 @@
       margin-bottom: 20px;
       margin-top: 20px;
     }
-    // var_dump($error_flag);
-    
-  } else {
-    $error_flag[] = "ちゃんとデータ送ってください";
-  }
-  // var_dump($_SESSION);
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>アカウント登録</title>
-  <style>
-    .flex {
-      display: flex;
-    }
-    .justify-center {
-      justify-content: center;
-    }
-    .align-center {
-      align-items: center;
-    }
-    .title {
-      font-size: 40px;
-      font-weight: 600;
-    }
-    .subtitle {
-      font-size: 50px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 20px;
-      margin-top: 20px;
-    }
     .box {
       width: 40%;
       height: 750px;
@@ -171,6 +136,7 @@
     }
     .f-btn:hover {
       cursor: pointer;
+      background-color: #2EB7E2;
     }
     .move-login {
       font-size: 25px;
