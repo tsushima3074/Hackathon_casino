@@ -146,7 +146,7 @@
 </head>
 <body>
   <div class="flex justify-center align-center">
-    <img src="img/icon.png" alt="icon">
+    <img src="src/img/icon.png" alt="icon">
     <span class="title">じょびカジノ</span>
   </div>
   <div class="box align-center">
