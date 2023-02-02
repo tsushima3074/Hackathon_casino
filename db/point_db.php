@@ -23,7 +23,6 @@
 //      sql文の実行
       $stm->execute();
 
-      return $stm->fetch(PDO::FETCH_ASSOC);
     }
 
     public function gift_point($user_id, $gift_id) {
@@ -44,6 +43,5 @@
 //      sql文の実行
       $stm->execute();
 
-      return $stm->fetch(PDO::FETCH_ASSOC);
     }
   }
