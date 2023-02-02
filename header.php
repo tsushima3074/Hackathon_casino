@@ -2,6 +2,7 @@
   .header {
     border-bottom: 2px solid #000;
     justify-content: space-around;
+    background-color: #fff;
   }
   .flex {
     display: flex;
@@ -41,13 +42,13 @@
 <body>
   <header class="flex header align-center">
     <div class="flex align-center">
-      <img class="h-img" src="img/icon.png" />
+      <img class="h-img" src="src/img/h-icon.png" />
       <div class="h-title">
         <span><a href="index.php" class="non-a">じょびカジノ</a></span>
       </div>
     </div>
     <div class="h-username f-30">
-      <span>ユーザ名</span>
+      <span><?php echo $_SESSION["user"]["name"]; ?></span>
     </div>
     <div class="h-edit f-30">
       <span><a href="account_edit.php" class="non-a">編集</a></span>
@@ -56,7 +57,7 @@
       <span><a href="logout.php" class="non-a">ログアウト</a></span>
     </div>
     <div class="h-point f-30">
-      <span>所有ポイント：9999999</span>
+      <span>所有ポイント : <?php echo $_SESSION["user"]["point"]; ?></span>
     </div>
   </header>
 </body>

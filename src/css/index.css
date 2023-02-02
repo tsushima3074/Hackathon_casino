@@ -1,0 +1,59 @@
+.justify-around {
+  justify-content: space-around;
+}
+.justify-center {
+  justify-content: center;
+}
+.ta-center {
+  text-align: center;
+}
+.roulette > p,
+.slot > p {
+  margin-top: 20px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.bold {
+  font-weight: 600;
+  color: #333;
+}
+.li-none {
+  list-style: none;
+}
+.play-btn,
+.trade-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 20px 60px;
+  text-decoration: none;
+  background-color: #999;
+  color: #fff;
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: 600;
+  border-radius: 40px;
+}
+.play-btn:hover {
+  background: #777;
+}
+.trade {
+  position: absolute;
+  top: 500px;
+  height: 320px;
+  width: 320px;
+  border-radius: 160px;
+  background-color: #999;
+}
+.trade > p {
+  margin-top: 80px;
+  color: #333;
+}
+.trade-btn {
+  margin-top: 0px;
+  padding: 15px 50px;
+  background-color: #40bb62;
+}
+.trade-btn:hover {
+  background-color: #3bab5a;
+}
