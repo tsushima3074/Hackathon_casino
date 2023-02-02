@@ -60,7 +60,7 @@
           ナンバーを選択し、Bet額を入力することでBetすることが出来ます。<br>
           回すをクリックして選択したナンバーに止まると、<br>
           ポイントを獲得することができます。<br>
-          右下にこの台での変動したポイントが表示されます。<br>
+          右下に変動したポイントが表示されます。<br>
         </p>
       </div>
 
@@ -88,7 +88,7 @@
       </div>
 
       <div class="box">
-        <p class="change-point-text">ポイントの変動 : +9999</p>
+        <p class="change-point-text" id="change_point">ポイントの変動 : 0</p>
       </div>
     </div>
   </div>
