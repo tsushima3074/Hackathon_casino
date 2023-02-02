@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (first === false) {
       interval = setInterval(start_go, 100);
       set_point();
+      for (var j = 0; j < 10; j++) {
+        let all = document.getElementById('cil' + j);
+        all.classList.remove('pink');
+        all.classList.remove('red');
+      }
       first = true;
     }
   }
@@ -64,13 +69,20 @@ document.addEventListener('DOMContentLoaded', function () {
     clearInterval(interval);
     first = false;
     let red_number = document.querySelector('.red'); //.redクラスのついているものを取得
-    console.log(grid);
-    num.splice(grid, 1); //配列からred_numberのところを1つ削除
-    console.log(num);
+    // console.log(grid);
+    // num.splice(grid, 1); //配列からred_numberのところを1つ削除
+    // console.log(num);
     red_number.classList.remove('red');
     red_number.classList.add('pink');
     if (num.length === 0) {
       document.getElementById('start').disabled = true;
+    }
+    const Bet_num = document.getElementById('Betnum');
+    console.log(Bet_num.value);
+    console.log(number);
+    if (number == Bet_num.value) {
+      console.log('hit');
+      add_point();
     }
   }
 
@@ -103,16 +115,25 @@ const set_point = async () => {
   let params = param_url.searchParams;
   const Bet = document.getElementById('Bet').value;
   var form = new FormData();
-  form.append('bet', Bet);
+  form.append('bet', -Bet);
   form.append('id', params.get('id'));
   const response = await fetch(url, {
     method: 'POST', // GET POST PUT DELETEなど
     body: form, // リクエスト本文にフォームデータを設定
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .then((json) => {
-      console.log(json);
-    });
+  });
+};
+
+const add_point = async () => {
+  const url = 'roulette_bet.php';
+  let param_url = new URL(window.location.href);
+  let params = param_url.searchParams;
+  const Bet = document.getElementById('Bet').value;
+  const addBet = Bet * 10;
+  var form = new FormData();
+  form.append('bet', +addBet);
+  form.append('id', params.get('id'));
+  const response = await fetch(url, {
+    method: 'POST', // GET POST PUT DELETEなど
+    body: form, // リクエスト本文にフォームデータを設定
+  });
 };
