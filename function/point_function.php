@@ -7,11 +7,11 @@
     // pointを管理するクラスのインスタンスを作成
     $point_db = new point_db();
     // typeが1ならカジノを遊戯したと判定
-    if ($type === 1) {
-      $point_db->casino_point($user_id, $id, $point);
-    } else {
-      $point_db->gift_point($user_id, $id);
-    }
+      if ($type === 1) {
+        $point_db->casino_point($user_id, $id, $point);
+      } else {
+        $point_db->gift_point($user_id, $id);
+      }
   }
 
 

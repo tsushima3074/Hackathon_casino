@@ -1,6 +1,6 @@
 <?php  
-require_once dirname(__FILE__) . '\connect.php';
-require_once dirname(__FILE__) . "\get_db_data.php";
+  require_once dirname(__FILE__) . '\connect.php';
+  require_once dirname(__FILE__) . "\get_db_data.php";
 
 class user_db {
 
@@ -148,6 +148,43 @@ class user_db {
 //      sql文の実行
     $stm->execute();
   }
+
+    public function get_user_point($user_id) {
+      $db_data = get_select_user_data();
+      $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+
+  //      insert_userのコネクションを取得
+      $pdo = $connect->get_select_user();
+//      sql文の構築
+      $sql = "SELECT point FROM account WHERE id = :id";
+//      プリペアードステートメントを作成する
+      $stm = $pdo->prepare($sql);
+//      プレースホルダに値をバインドする
+      $stm->bindValue(":id", $user_id, PDO::PARAM_INT);
+
+//      sql文の実行
+      $stm->execute();
+
+      return $stm->fetch(PDO::FETCH_ASSOC)["point"];
+    }
+
+    public function update_user_point($id, $point) {
+      $db_data = get_select_user_data();
+      $connect = new Connect($db_data["user"], $db_data["pw"], $db_data["database"], $db_data["server"]);
+
+  //      insert_userのコネクションを取得
+      $pdo = $connect->get_select_user();
+//      sql文の構築
+      $sql = "UPDATE account SET point = point + :point WHERE id = :id";
+//      プリペアードステートメントを作成する
+      $stm = $pdo->prepare($sql);
+//      プレースホルダに値をバインドする
+      $stm->bindValue(":id", $id, PDO::PARAM_INT);
+      $stm->bindValue(":point", $point, PDO::PARAM_INT);
+
+//      sql文の実行
+      $stm->execute();
+    }
 
   public function update_password($pass, $user_id) {
     $db_data = get_select_user_data();

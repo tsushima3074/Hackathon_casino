@@ -1,0 +1,72 @@
+.subtitle {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+/* 景品一覧 */
+.column {
+  width: 100%;
+  display: flex;
+  justify-self: center;
+}
+.column img {
+  max-width: 300px;
+  max-height: 300px;
+}
+.column ul {
+  width: calc(100 + 20px);
+  margin: 0 -10px;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.column li {
+  list-style-type: none;
+  padding: 0 10px 20px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.column li p {
+  text-align: center;
+  margin-top: 3px;
+  font-size: 30px;
+  margin-bottom: 3px;
+}
+.column li span {
+  text-align: center;
+  font-size: 28px;
+  display: block;
+}
+.column03 li {
+  width: calc(33.333% - 20px);
+}
+
+/* ボタン */
+.trade-btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 65%;
+  height: 50px;
+  font-size: 30px;
+  color: #fff;
+  border: none;
+  background-color: #3cbd1f;
+  border-radius: 50px;
+}
+.trade-btn:hover {
+  cursor: pointer;
+  background-color: #2f9418;
+}
+
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+button:disabled:hover {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
