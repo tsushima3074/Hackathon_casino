@@ -72,7 +72,7 @@
             <p class="f-30 bold">上限値 : <?php echo $s["upper_limit"]; ?></p>
             <p class="f-30 bold">下限値 : <?php echo $s["lower_limit"]; ?></p>
             <p class="f-30 bold">現在のPOINT : <?php echo $s["now_point"]; ?></p>
-            <form action="./" method="get">
+            <form action="slot.php" method="get">
             <button class="play-btn" type="submit" name="id" value="<?php echo $s["id"]; ?>">スロットをプレイする</button>
           </form>
           </div>

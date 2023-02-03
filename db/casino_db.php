@@ -1,8 +1,9 @@
 <?php
+
     require_once dirname(__FILE__) . '\connect.php';
     require_once dirname(__FILE__) . "\get_db_data.php";
 
-    class casino_db {
+class casino_db {
 
       public function select_roulette_list(){
       
@@ -14,13 +15,13 @@
               INNER JOIN  stand_name as sn ON sn.id = s.standname_id
               WHERE standname_id IN(SELECT id FROM stand_name WHERE name LIKE '%ルーレット%')";
 
-      $stm = $pdo->prepare($sql);
+          $stm = $pdo->prepare($sql);
 
-      
-      $stm->execute();
+    
+          $stm->execute();
 
-      return $stm->fetchAll(PDO::FETCH_ASSOC);
-  
+          return $stm->fetchAll(PDO::FETCH_ASSOC);
+
       }
 
       public function select_slot_list(){
@@ -64,3 +65,7 @@
         }
 
     }
+
+  
+
+ 
