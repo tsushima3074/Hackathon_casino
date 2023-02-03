@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require __DIR__ . "\db\user_db.php";
+  require __DIR__ . "/db/user_db.php";
 
   if(isset($_SESSION["id"])) {
     $id = $_SESSION["user"]["id"];

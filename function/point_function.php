@@ -1,6 +1,6 @@
 <?php
 
-  require_once dirname(__DIR__). "\db\point_db.php";
+  require_once dirname(__DIR__). "/db/point_db.php";
   
   // pointをDBに登録する関数
   function point_function($user_id, $id, $type, $point) {

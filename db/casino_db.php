@@ -1,7 +1,7 @@
 <?php
 
-    require_once dirname(__FILE__) . '\connect.php';
-    require_once dirname(__FILE__) . "\get_db_data.php";
+    require_once dirname(__FILE__) . '/connect.php';
+    require_once dirname(__FILE__) . "/get_db_data.php";
 
 class casino_db {
 

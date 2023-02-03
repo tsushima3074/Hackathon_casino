@@ -23,10 +23,10 @@ create table stand_name (
     PRIMARY KEY(id)
 );
 
-INSERT INTO stand_name VALUES(null, '1betルーレット', 1, 10);
-INSERT INTO stand_name VALUES(null, '10betルーレット', 10, 100);
-INSERT INTO stand_name VALUES(null, '20betスロット', 20, 20);
-INSERT INTO stand_name VALUES(null, '40betスロット', 40, 40);
+INSERT INTO stand_name VALUES(null, '1betルーレット', 10, 1, 0);
+INSERT INTO stand_name VALUES(null, '10betルーレット', 100, 10, 0);
+INSERT INTO stand_name VALUES(null, '20betスロット', 20, 20, 0);
+INSERT INTO stand_name VALUES(null, '40betスロット', 40, 40, 0);
 
 /*台のテーブル*/
 create table stand (
