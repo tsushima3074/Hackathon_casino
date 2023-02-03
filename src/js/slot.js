@@ -194,7 +194,11 @@ const set_point = async () => {
   const response = await fetch(url, {
     method: 'POST', // GET POST PUT DELETEなど
     body: form, // リクエスト本文にフォームデータを設定
-  });
+  }).then(res => {
+    return res.json()
+  }).then(json => {
+    console.log(json)
+  })
 };
 
 const add_point = async () => {
