@@ -142,7 +142,7 @@
       <div class="input-center"><label for="password"><p class="f-p">確認パスワード</p><span class="flex"><img src="src/img/pass.png" width="40"><input type="password" name="re_pw" id="" class="f-input" required></span></label></div><br>
       <button type="submit" class="f-btn">編集</button>
     </form>
-    <div class="flex justify-around"><a href="password_edit.php" class="f-a">パスワード編集</a><a href="account_delete.php" class="f-a">アカウント削除</a></div>
+    <div class="flex justify-around"><a href="account_edit.php" class="f-a">アカウント編集</a><a href="account_delete.php" class="f-a">アカウント削除</a></div>
   </div>
 </body>
 </html>
