@@ -15,6 +15,6 @@ create event daily_casino_point
 on schedule every 1 DAY
 starts '2023-02-01 00:00:00'
 do
-update stand set upper_limit = FLOOR(5000 + RAND() * (100000)), lower_limit = -1 * FLOOR(5000 + RAND() * (100000));
+update stand set upper_limit = FLOOR(5000 + RAND() * (100000)), lower_limit = -1 * FLOOR(5000 + RAND() * (100000)), now_point = 0;
 $$
 delimiter ;
