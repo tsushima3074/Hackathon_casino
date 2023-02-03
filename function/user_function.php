@@ -19,7 +19,7 @@
 
   //    文字数チェックをする関数
   function length_validation($str, $max, $min) {
-//    文字数カウント
+  //    文字数カウント
     $str = mb_strlen($str, "UTF-8");
 
     return $str <= $max && $str >= $min;
