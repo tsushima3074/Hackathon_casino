@@ -19,6 +19,7 @@ create table stand_name (
     name VARCHAR(32),
     max_bet INTEGER,
     min_bet INTEGER,
+    now_point INTEGER DEFAULT 0,
     PRIMARY KEY(id)
 );
 
