@@ -186,6 +186,8 @@ const set_point = async () => {
   let param_url = new URL(window.location.href);
   let params = param_url.searchParams;
   const Bet = document.getElementById('Bet').value;
+  document.getElementById('change_point').textContent =
+    'ポイントの変動 : ' + -Bet;
   var form = new FormData();
   form.append('bet', -Bet);
   form.append('id', params.get('id'));
@@ -201,6 +203,8 @@ const add_point = async () => {
   let params = param_url.searchParams;
   const Bet = document.getElementById('Bet').value;
   const addBet = Bet * 100;
+  document.getElementById('change_point').textContent =
+    'ポイントの変動 : ' + addBet;
   var form = new FormData();
   form.append('bet', addBet);
   form.append('id', params.get('id'));

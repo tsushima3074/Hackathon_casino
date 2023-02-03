@@ -69,7 +69,7 @@
         </form>
       </div>
       <div class="box">
-        <p class="change-point-text">ポイントの変動 : <span id="change_point">+9999</span></p>
+        <p class="change-point-text" id="change_point">ポイントの変動 : <span id="change_point">+9999</span></p>
       </div>
     </div>
   </div>
